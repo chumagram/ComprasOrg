@@ -17,10 +17,8 @@ Gestor de compras para una organización que adquiere insumos de terceros regula
 Imagen
 
 ## 3. Listado de tablas
-| **Nombre de la tabla** |
-|----------|
-| *Descripción de la tabla* |
-|----------|
+**Nombre de la tabla:**
+*Descripción:*
 | Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
 |----------|----------|----------|----------|
 | Row 1    | Cell 2   | Cell 3   | Cell 3   |
