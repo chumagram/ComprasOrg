@@ -82,3 +82,39 @@ Luego, la base de datos también tendría la capacidad de:
 | Identificador del proveedor     | id_proveedor   |     Entero    | Clave foránea   |
 | Numero de oferta                | num_oferta     |     Entero    |                 |
 | Identificador del estado        | id_estado      |     Entero    | Clave foránea   |
+
+### insumo_proveedor:
+*Descripción: Esta tabla teiene la funcionalidad de interconectar o relacionar la tabla de insumos con la tabla de proveedores ya que en este caso se da una relacion de muchos a muchos, dicho de otra manera, muchos proveedores proveen muchos insumos. Un proveedor en su cartera de opciones puede contar con una gran cantidad de insumos. Visto del otro lado, un insumo es proveido por muchos proveedores.*
+
+| Nombre del campo                           | Abreviatura    | Tipo de datos |  Tipo de clave  |
+|--------------------------------------------|----------------|---------------|-----------------|
+| Identificador de relacion proveedor-insumo | id_prove_insum |     Entero    | Clave primaria  |
+| Identificador del proveedor                | id_proveedor   |     Entero    | Clave foránea   |
+| Identificador del insumo                   | id_insumo      |     Entero    | Clave foránea   |
+
+### estado_req:
+*Descripción: Esta tabla tiene la funcion de contener los posbiles estados que pueda terner una requisicion. maquina_insumo*
+
+| Nombre del campo                       | Abreviatura   | Tipo de datos |  Tipo de clave  |
+|----------------------------------------|---------------|---------------|-----------------|
+| Identificador de estado de requisicion | id_estado_req | Entero        | Clave primaria  |
+| Nombre del estado                      | nombre        | String        |                 |
+| Descripcion del estado                 | descripcion   | String        |                 |
+
+### maquina_insumo:
+*Descripción: Esta tabla tiene la funcion de ser nexo y lograr la relacion entre las tablas maquina y la tabla insumo ya que entre ellas se da una relacion de muchos a muchos. La explicacion de esto sería de que una maquina puede utilzar muchos y diversos tipos de insumo, como así tambien un insumo puede ser ocupado en muchas maquinas ya que en la organizacion se cuenta con 116 máquinas circulares tejedoras, muy similares una con las otras.*
+
+| Nombre del campo                  | Abreviatura    | Tipo de datos |  Tipo de clave  |
+|-----------------------------------|----------------|---------------|-----------------|
+| Id. de la relacion maquina-insumo | id_rel_ins_maq | Entero        | Clave primaria  |
+| Identificador de insumo           | id_insumo      | Entero        | Clave foránea   |
+| Identificador de la máquina       | id_maquina     | Entero        | Clave foránea   |
+
+### requisicion_lista_insumos:
+*Descripción: Esta tabla tiene la funcion de contener la lista de insumos pero asignándole una cierta cantidad y requisición específica. Esto es debido a que en una requisicion o solicitud de compra, además de los datos de la requisición en sí, también se tiene una tabla adentro de la misma que contiene la lista de insumos a pedir.*
+
+| Nombre del campo                | Abreviatura    | Tipo de datos |  Tipo de clave  |
+|---------------------------------|----------------|---------------|-----------------|
+| Identificador de la requisicion | id_requisicion | Entero        | Clave foránea   |
+| Identificador del insumo        | id_insumo      | Entero        | Clave foránea   |
+| Cantidad del insumo a solicitar | cantidad       | Entero        |                 |
