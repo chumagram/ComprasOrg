@@ -27,8 +27,11 @@ Luego, la base de datos también tendría la capacidad de:
 ![Diagrama entidad relación](/images/der.jpg)
 
 ## 3. Listado de tablas
+
 **insumo:**
+
 *Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
+
 |     Nombre del campo     | Abreviatura | Tipo de datos |  Tipo de clave  |
 |--------------------------|-------------|---------------|-----------------|
 | Identificador del insumo |  id_insumo  |     Entero    |  Clave primaria |
@@ -36,7 +39,9 @@ Luego, la base de datos también tendría la capacidad de:
 |    Cantidad del insumo   |    stock    |     Entero    |                 |
 
 **maquina:**
+
 *Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
+
 |       Nombre del campo      |  Abreviatura | Tipo de datos |  Tipo de clave  |
 |-----------------------------|--------------|---------------|-----------------|
 | Identificador de la máquina |  id_maquina  |     Entero    |  Clave primaria |
