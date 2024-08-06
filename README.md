@@ -28,22 +28,35 @@ Luego, la base de datos también tendría la capacidad de:
 
 ## 3. Listado de tablas
 
-**insumo:**
-
+### insumo:
 *Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
-
 |     Nombre del campo     | Abreviatura | Tipo de datos |  Tipo de clave  |
 |--------------------------|-------------|---------------|-----------------|
 | Identificador del insumo |  id_insumo  |     Entero    |  Clave primaria |
 |  Descripción del insumo  |   descrip   |     String    |                 |
 |    Cantidad del insumo   |    stock    |     Entero    |                 |
 
-**maquina:**
+### maquina:
+*Descripción: esta tabla corresponde a las maquinas que consumen insumos y producen tela. Tambien incluye los datos suficientes para describirla (faltan muchos otros pero no vienen al caso a no ser que se quiera complejizar enormemente la base de datos).*
+| Nombre del campo            | Abreviatura   | Tipo de datos | Tipo de clave   |
+|-----------------------------|---------------|---------------|-----------------|
+| Identificador de la máquina | id_maquina    |     Entero    |  Clave primaria |
+| Número de fabricación       | num_fabric    |     String    |                 |
+| Año de fabricación          | anio_fabric   |     Entero    |                 |
+| Modelo de la máquina        | modelo        |     String    |                 |
+| Diámetro                    | diametro      |     Entero    |                 |
+| Potencia                    | potencia      |     Entero    |                 |
+| Alimentadores               | alimentadores |     Entero    |                 |
 
+### proveedor:
 *Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
-
-|       Nombre del campo      |  Abreviatura | Tipo de datos |  Tipo de clave  |
-|-----------------------------|--------------|---------------|-----------------|
-| Identificador de la máquina |  id_maquina  |     Entero    |  Clave primaria |
-|    Número de fabricación    |   descrip   |     String    |                 |
-|      Año de fabricación     |    stock    |     Entero    |                 |
+|       Nombre del campo      | Abreviatura   | Tipo de datos |  Tipo de clave  |
+|-----------------------------|---------------|---------------|-----------------|
+| Identificador de la máquina | id_maquina    |     Entero    |  Clave primaria |
+| Número de fabricación       | num_fabric    |     String    |                 |
+| Año de fabricación          | anio_fabric   |     Entero    |                 |
+| Modelo de la máquina        | modelo        |     Entero    |                 |
+| Tipo de tejidos             | tipo_tejidos  |     Entero    |                 |
+| Diámetro                    | diametro      |     Entero    |                 |
+| Potencia                    | potencia      |     Entero    |                 |
+| Alimentadores               | alimentadores |     Entero    |                 |
