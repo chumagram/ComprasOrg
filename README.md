@@ -27,50 +27,18 @@ Luego, la base de datos también tendría la capacidad de:
 ![Diagrama entidad relación](/images/der.jpg)
 
 ## 3. Listado de tablas
-**Nombre de la tabla:**
-*Descripción:*
-| Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
-|----------|----------|----------|----------|
-| Row 1    | Cell 2   | Cell 3   | Cell 3   |
-| Row 2    | Cell 5   | Cell 6   | Cell 3   |
-| Row 3    | Cell 8   | Cell 9   | Cell 3   |
+**insumo:**
+*Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
+|     Nombre del campo     | Abreviatura | Tipo de datos |  Tipo de clave  |
+|--------------------------|-------------|---------------|-----------------|
+| Identificador del insumo |  id_insumo  |     Entero    |  Clave primaria |
+|  Descripción del insumo  |   descrip   |     String    |                 |
+|    Cantidad del insumo   |    stock    |     Entero    |                 |
 
-**Nombre de la tabla:**
-*Descripción:*
-| Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
-|----------|----------|----------|----------|
-| Row 1    | Cell 2   | Cell 3   | Cell 3   |
-| Row 2    | Cell 5   | Cell 6   | Cell 3   |
-| Row 3    | Cell 8   | Cell 9   | Cell 3   |
-
-**Nombre de la tabla:**
-*Descripción:*
-| Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
-|----------|----------|----------|----------|
-| Row 1    | Cell 2   | Cell 3   | Cell 3   |
-| Row 2    | Cell 5   | Cell 6   | Cell 3   |
-| Row 3    | Cell 8   | Cell 9   | Cell 3   |
-
-**Nombre de la tabla:**
-*Descripción:*
-| Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
-|----------|----------|----------|----------|
-| Row 1    | Cell 2   | Cell 3   | Cell 3   |
-| Row 2    | Cell 5   | Cell 6   | Cell 3   |
-| Row 3    | Cell 8   | Cell 9   | Cell 3   |
-
-**Nombre de la tabla:**
-*Descripción:*
-| Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
-|----------|----------|----------|----------|
-| Row 1    | Cell 2   | Cell 3   | Cell 3   |
-| Row 2    | Cell 5   | Cell 6   | Cell 3   |
-| Row 3    | Cell 8   | Cell 9   | Cell 3   |
-
-**Nombre de la tabla:**
-*Descripción:*
-| Nombre del campo | Abreviatura | Tipo de datos | Tipo de clave |
-|----------|----------|----------|----------|
-| Row 1    | Cell 2   | Cell 3   | Cell 3   |
-| Row 2    | Cell 5   | Cell 6   | Cell 3   |
-| Row 3    | Cell 8   | Cell 9   | Cell 3   |
+**maquina:**
+*Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
+|       Nombre del campo      |  Abreviatura | Tipo de datos |  Tipo de clave  |
+|-----------------------------|--------------|---------------|-----------------|
+| Identificador de la máquina |  id_maquina  |     Entero    |  Clave primaria |
+|    Número de fabricación    |   descrip   |     String    |                 |
+|      Año de fabricación     |    stock    |     Entero    |                 |
