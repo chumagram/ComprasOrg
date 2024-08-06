@@ -49,7 +49,7 @@ Luego, la base de datos también tendría la capacidad de:
 | Alimentadores               | alimentadores |     Entero    |                 |
 
 ### proveedor:
-*Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
+*Descripción: Esta tabla corresponde a los proveedores de insumos y se añade las firmas que representan, aunque las propias firmas pueden ser proveedores.*
 |       Nombre del campo      | Abreviatura   | Tipo de datos |  Tipo de clave  |
 |-----------------------------|---------------|---------------|-----------------|
 | Identificador de la máquina | id_maquina    |     Entero    |  Clave primaria |
@@ -60,3 +60,25 @@ Luego, la base de datos también tendría la capacidad de:
 | Diámetro                    | diametro      |     Entero    |                 |
 | Potencia                    | potencia      |     Entero    |                 |
 | Alimentadores               | alimentadores |     Entero    |                 |
+
+### contacto:
+*Descripción: Esta tabla representa a un contacto, que sería una persona que pertenece a una empresa que es proveedor y tiene la capacidad de guiarnos en el proceso de compra o consulta sobre insumos. Se añade los datos necesarios para justamente contactarnos con ella correctamente.*
+| Nombre del campo             | Abreviatura   | Tipo de datos |  Tipo de clave  |
+|------------------------------|---------------|---------------|-----------------|
+| Identificador del contacto   | id_contacto   |     Entero    |  Clave primaria |
+| Identificación del proveedor | num_fabric    |     Entero    |  Clave foránea  |
+| Nombre del contacto          | nombre        |     String    |                 |
+| Apellido del contacto        | apellido      |     String    |                 |
+| Mail del contacto            | mail          |     String    |                 |
+| Código de área               | cod_area      |     Entero    |                 |
+| Teléfono del contacto        | telefono      |     String    |                 |
+
+### requisicion:
+*Descripción: Esta tabla corresponde a una requisición o solicitud de compra que se envía a un determinado proveedor para que luego nos devuelva una cotización u oferta. Luego esa oferta será confirmada al proveedor para luego comprar o también se podrá cancelar. En conclusiín, la requisición tendrá una serie definida de estados*
+| Nombre del campo                | Abreviatura    | Tipo de datos |  Tipo de clave  |
+|---------------------------------|----------------|---------------|-----------------|
+| Identificador de la requisicion | id_requisicion |     Entero    | Clave primaria  |
+| Fecha de la requisicion         | fecha          |     Entero    |                 |
+| Identificador del proveedor     | id_proveedor   |     Entero    | Clave foránea   |
+| Numero de oferta                | num_oferta     |     Entero    |                 |
+| Identificador del estado        | id_estado      |     Entero    | Clave foránea   |
