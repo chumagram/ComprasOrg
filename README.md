@@ -118,3 +118,7 @@ Luego, la base de datos también tendría la capacidad de:
 | Identificador de la requisicion | id_requisicion | UNSIGNED TINYINT | Clave foránea   |
 | Identificador del insumo        | id_insumo      | UNSIGNED TINYINT | Clave foránea   |
 | Cantidad del insumo a solicitar | cantidad       | UNSIGNED TINYINT |                 |
+
+## 4. Archivo SQL
+*En el siguiente link puedes encontrar la query que crea la base de datos con sus respectivas tablas y configraciones:*
+[CLICKEA AQUI](/init_ind_shopping.sql)
