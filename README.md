@@ -54,11 +54,11 @@ Luego, la base de datos también tendría la capacidad de:
 |-----------------------------|---------------|------------------|-----------------|
 | Identificador del proveedor | id_proveedor  | UNSIGNED TINYINT |  Clave primaria |
 | Nombre del proveedor        | nombre        | CHAR             |                 |
-| Pais                        | pais          | CHAR             |                 |
-| Firmas que representa       | provincia     | CHAR             |                 |
-| Firmas que representa       | ciudad        | CHAR             |                 |
-| Firmas que representa       | calle         | CHAR             |                 |
-| Firmas que representa       | num_calle     | UNSIGNED TINYINT |                 |
+| Pais donde reside           | pais          | CHAR             |                 |
+| Provincia donde reside      | provincia     | CHAR             |                 |
+| Ciudad donde reside         | ciudad        | CHAR             |                 |
+| Calle de locación           | calle         | CHAR             |                 |
+| Altura de la calle          | num_calle     | UNSIGNED TINYINT |                 |
 | Firmas que representa       | firmas_repre  | JSON             |                 |
 
 ### contacto:
