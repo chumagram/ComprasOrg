@@ -33,7 +33,7 @@ Luego, la base de datos también tendría la capacidad de:
 | Nombre del campo         | Abreviatura | Tipo de datos    | Tipo de clave   |
 |--------------------------|-------------|------------------|-----------------|
 | Identificador del insumo | id_insumo   | UNSIGNED INTEGER | Clave primaria  |
-| Descripción del insumo   | descrip     | CHAR             |                 |
+| Descripción del insumo   | descrip     | VARCHAR          |                 |
 | Cantidad del insumo      | stock       | UNSIGNED TINYINT |                 |
 
 ### maquina:
@@ -43,7 +43,7 @@ Luego, la base de datos también tendría la capacidad de:
 | Identificador de la máquina | id_maquina    | UNSIGNED TINYINT | Clave primaria  |
 | Número de fabricación       | num_fabric    | UNSIGNED INTEGER |                 |
 | Año de fabricación          | anio_fabric   | YEAR             |                 |
-| Modelo de la máquina        | modelo        | CHAR             |                 |
+| Modelo de la máquina        | modelo        | VARCHAR          |                 |
 | Diámetro                    | diametro      | UNSIGNED TINYINT |                 |
 | Potencia                    | potencia      | UNSIGNED TINYINT |                 |
 | Alimentadores               | alimentadores | UNSIGNED TINYINT |                 |
@@ -53,11 +53,11 @@ Luego, la base de datos también tendría la capacidad de:
 |       Nombre del campo      | Abreviatura   | Tipo de datos    |  Tipo de clave  |
 |-----------------------------|---------------|------------------|-----------------|
 | Identificador del proveedor | id_proveedor  | UNSIGNED TINYINT |  Clave primaria |
-| Nombre del proveedor        | nombre        | CHAR             |                 |
-| Pais donde reside           | pais          | CHAR             |                 |
-| Provincia donde reside      | provincia     | CHAR             |                 |
-| Ciudad donde reside         | ciudad        | CHAR             |                 |
-| Calle de locación           | calle         | CHAR             |                 |
+| Nombre del proveedor        | nombre        | VARCHAR          |                 |
+| Pais donde reside           | pais          | VARCHAR          |                 |
+| Provincia donde reside      | provincia     | VARCHAR          |                 |
+| Ciudad donde reside         | ciudad        | VARCHAR          |                 |
+| Calle de locación           | calle         | VARCHAR          |                 |
 | Altura de la calle          | num_calle     | UNSIGNED TINYINT |                 |
 | Firmas que representa       | firmas_repre  | JSON             |                 |
 
@@ -67,9 +67,9 @@ Luego, la base de datos también tendría la capacidad de:
 |------------------------------|---------------|------------------|----------------|
 | Identificador del contacto   | id_contacto   | UNSIGNED TINYINT | Clave primaria |
 | Identificación del proveedor | num_fabric    | UNSIGNED TINYINT | Clave foránea  |
-| Nombre del contacto          | nombre        | CHAR             |                |
-| Apellido del contacto        | apellido      | CHAR             |                |
-| Mail del contacto            | mail          | CHAR             |                |
+| Nombre del contacto          | nombre        | VARCHAR          |                |
+| Apellido del contacto        | apellido      | VARCHAR          |                |
+| Mail del contacto            | mail          | VARCHAR          |                |
 | Código de área               | cod_area      | UNSIGNED TINYINT |                |
 | Teléfono del contacto        | telefono      | UNSIGNED INTEGER |                |
 
@@ -98,8 +98,8 @@ Luego, la base de datos también tendría la capacidad de:
 | Nombre del campo                       | Abreviatura   | Tipo de datos    |  Tipo de clave  |
 |----------------------------------------|---------------|------------------|-----------------|
 | Identificador de estado de requisicion | id_estado_req | UNSIGNED TINYINT | Clave primaria  |
-| Nombre del estado                      | nombre        | CHAR             |                 |
-| Descripcion del estado                 | descripcion   | CHAR             |                 |
+| Nombre del estado                      | nombre        | VARCHAR          |                 |
+| Descripcion del estado                 | descripcion   | VARCHAR          |                 |
 
 ### maquina_insumo:
 *Descripción: Esta tabla tiene la funcion de ser nexo y lograr la relacion entre las tablas maquina y la tabla insumo ya que entre ellas se da una relacion de muchos a muchos. La explicacion de esto sería de que una maquina puede utilzar muchos y diversos tipos de insumo, como así tambien un insumo puede ser ocupado en muchas maquinas ya que en la organizacion se cuenta con 116 máquinas circulares tejedoras, muy similares una con las otras.*
