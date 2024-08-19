@@ -24,7 +24,7 @@ Luego, la base de datos también tendría la capacidad de:
 - Seguimiento de proveedores e insumos que suministran.
 
 ## 2. Diagrama entidad relación
-![Diagrama entidad relación](/DER.jpg)
+![Diagrama entidad relación](/DER_v2.jpg)
 
 ## 3. Listado de tablas
 
