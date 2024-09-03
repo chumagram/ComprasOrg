@@ -1,4 +1,4 @@
-# Proyecto Final
+# Proyecto Final - Gestor de compras industriales
 ## 1. Descripción de la temática
 
 ### Introducción
@@ -120,5 +120,108 @@ Luego, la base de datos también tendría la capacidad de:
 | Cantidad del insumo a solicitar | cantidad       | UNSIGNED TINYINT |                 |
 
 ## 4. Archivo SQL
-*En el siguiente link puedes encontrar la query que crea la base de datos con sus respectivas tablas y configraciones:*
+*En el siguiente link puedes encontrar la query que crea la base de datos con sus respectivas tablas y configraciones:*  
 [CLICKEA AQUI](/init_ind_shopping.sql)
+#### 4.1. Mejoras
+La base de datos que acabas de crear, tiene algunas dificultades técnicas que son corregidas según la siguiente query:  
+[CLICKEA AQUÍ Y EJECUTA LA QUERY PARA TENER LA VERSIÓN MEJORADA](/init_ind_shopping_v2.sql)
+
+# Segunda entrega - Vistas, triggers y population
+En este apartado se agrearán vistas, funciones, stored procedures y un population con datos correspondientes a la base de datos creada en el apartado anterior o entregable 1.
+
+## 5. Vistas
+
+### Vista 1 - Inventario de Insumos
+**Descripción:** esta vista muestra el inventario actual de insumos, incluyendo la cantidad en stock y el stock mínimo.  
+**Objetivo:** mostrar de forma resumida y a posibles programas de terceros, la lista de todos los insumos que se tienen registrados con el stock actual y el minimo para analizar las posibles compras y o requisiciones de insumos a un almacén que los contenga para ser utilizados o consumidos.  
+**Tablas/datos:**
+| Nombre del campo          | Abreviatura  | Tabla origen |
+|---------------------------|--------------|--------------|
+| Identificador del insumo  | id_insumo    | insumo       |
+| Descripción del insumo    | descripcion  | insumo       |
+| Stock del insumo          | stock        | insumo       |
+| Stock mínimo del insumo   | stock_min    | insumo       |
+
+### Vista 2 - Consumos por Máquina
+**Descripción:** Muestra la cantidad de cada insumo utilizado por cada máquina.  
+**Objetivo:** Esta vista permite saber exactamente que insumos consume una determinada máquina y que cantidad se fue consumiendo para poder preveer un consumo futuro y no cometer un error al consumir un insumo y luego darse cuenta que no es el adecuado.  
+**Tablas/datos:**  
+| Nombre del campo            | Abreviatura  | Tabla origen |
+|-----------------------------|--------------|--------------|
+| Identificador de la máquina | id_maquina   | maquina      |
+| Modelo de la máquina        | modelo       | maquina      |
+| Identificador del insumo    | id_insumo    | consumo      |
+| Descripción del insumo      | descripcion  | insumo       |
+| Cantidad consumida          | cantidad     | consumo      |
+
+### Vista 3 - Requisiciones pendientes
+**Descripción:** muestra las requisiciones que están pendientes, junto con el estado y los detalles del proveedor.  
+**Objetivo:** mostrar los pendientes para rápidamente saber los insumos que nos deben los distintos proveedores y en base a esto poder hacer el correspodiente regalo o previsiónes.  
+**Tablas/datos:**  
+| Nombre del campo                | Abreviatura      | Tabla origen |
+|---------------------------------|------------------|--------------|
+| Identificador de la requisición | id_requisicion   | requisicion  |
+| Fecha de la requisición         | modelo           | requisicion  |
+| Nombre del proveedor            | proveedor_nombre | proveedor    |
+| Nombre del estado               | estado           | estado       |
+| Solicitante                     | solicitante      | requisicion  |
+| Comentario                      | comentario       | requisicion  |
+
+### Vista 4 - Proveedores e Insumos Suministrados
+**Descripción:** relación entre proveedores y los insumos que suministran.
+**Objetivo:** mostrar simplemente los insumos que provee un determinado proveedor para un rápido análisis de los posibles insumos a adquirir que pertenezcan a un mismo proveedor. Sería lograr algo así como la recomendación de añadir productos del mismo proveedor que recomienda Mercado Libre cuando se hace una compra. Esto trae beneficios monetarios, como descuentos, posibilidad de negociación y menos gastos de envío.
+**Tablas/datos:**
+| Nombre del campo            | Abreviatura         | Tabla origen |
+|-----------------------------|---------------------|--------------|
+| Identificador del proveedor | id_proveedor        | proveedor    |
+| Nombre del proveedor        | proveedor_nombre    | proveedor    |
+| Identificador del insumo    | id_insumo           | insumo       |
+| Descripcion del insumo      | insumo_descripcion  | insumo       |
+| Código insumo-proveedor     | codigo_insu_prov    | catalogo     |
+
+### Vista 5 - Contactos por proveedor
+**Descripción:** contactos asociados con cada proveedor, incluyendo detalles de contacto.  
+**Objetivo:** obtener todos los contactos que tiene un proveedor para saber facilemnte a quien contactar segun la persona que pertenece a esa organización y su cargo.  
+**Tablas/datos:**  
+| Nombre del campo            | Abreviatura      | Tabla origen |
+|-----------------------------|------------------|--------------|
+| Nombre del proveedor        | proveedor_nombre | proveedor    |
+| Nombre del contacto         | contacto_nombre  | contacto     |
+| Apellido del contacto       | apellido         | contacto     |
+| Mail del contacto           | mail             | contacto     |
+| Teléfono del contacto       | telefono         | contacto     |
+| Puesto laboral del contacto | puesto_lab       | contacto     |
+
+## 6. Funciones
+
+### Función 1 - Buscar insumo en tabla según descripción
+**Descripción:**  
+**Objetivo:**  
+**Tablas/datos:**  
+
+### Función 2 - Buscar insumo en tabla según identificador
+**Descripción:**  
+**Objetivo:**  
+**Tablas/datos:**  
+
+## 7. Stored procedures
+
+### Procedure 1 -
+**Descripción:**  
+**Objetivo:**  
+**Tablas/datos:**  
+
+### Procedure 2 -
+**Descripción:**  
+**Objetivo:**  
+**Tablas/datos:**  
+
+## 8. Archivos SQL
+
+### 8.1. Script de creación de objetos:
+*Descarga el siguiente archivo y ejecútalo para crear las vistas, funciones y stored procedures que te serán útiles en el día a día usando la db deñ Gestór de compras industriales*
+[CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects_v1.sql)
+
+### 8.2. Script de inserción de datos:
+*Descarga el siguiente archivo y ejecútalo para crear poblar de datos las tablas de la base de datos a modo de ejemplo. Puede insertar los datos que correspondan a su negocio o industria.*
+[CLICKEA AQUÍ Y EJECUTA PARA POBLAR DE DATOS LAS TABLAS DE LA DB](/ind_shopping_population.sql)
