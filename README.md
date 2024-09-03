@@ -195,26 +195,33 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
 ## 6. Funciones
 
 ### Función 1 - Buscar insumo en tabla según descripción
-**Descripción:**  
-**Objetivo:**  
+**Descripción:** esta funcion busca un insumo en una tabla que lo contenga según se especifique. Luego trae los datos de ese insumo en esa tabla.  
+**Objetivo:** Buscar rápidamente un insumo y los datos sobre él para poder ser analizado o planificar un consumo o compra.  
 **Tablas/datos:**  
 
 ### Función 2 - Buscar insumo en tabla según identificador
-**Descripción:**  
-**Objetivo:**  
+**Descripción:** esta funcion busca un un insumo pero se debe pasar el identificador o ID. Esto es más rápido en cuanto a procesamiento y/o si el usuario tiene el ID a mano, ya sea porque esta viendo una requisición o consumo realizado.  
+**Objetivo:** agilizar la búsqueda de un insumo si ya se posee su identificador.  
 **Tablas/datos:**  
 
 ## 7. Stored procedures
 
-### Procedure 1 -
-**Descripción:**  
-**Objetivo:**  
-**Tablas/datos:**  
+### Procedure 1 - Buscar en estado general de un insumo
+**Descripción:** Este procedimiento almacenado o stored procedure, realiza la búsqueda en todas las posibles tablas en donde se puede encontrar el insumo, es decir, en las tablas "insumo", "consumo" y "requisicion_lista" y devuelve los resultados coincidentes.  
+**Objetivo:**Ver facilmente el estado de un insumo en la base de datos.  
+**Tablas/datos:**
+- 
 
-### Procedure 2 -
-**Descripción:**  
-**Objetivo:**  
+### Procedure 2 - Crear requisicion de compra
+**Descripción:** Este stored procedure tiene la capacidad de crear una nueva requisición de compra en la base de datos.  
+**Objetivo:** Crear una requisisción de compra y asignarle proveedor y estado. Esto automatiza el proceso de crear una requisición.  
 **Tablas/datos:**  
+- Se aplica a la tabla "requisicion"
+- Datos de entrada:
+  1. ID del proveedor
+  2. Numero de oferta
+  3. Solicitante
+  4. Comentario
 
 ## 8. Archivos SQL
 
@@ -223,5 +230,5 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
 [CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects_v1.sql)
 
 ### 8.2. Script de inserción de datos:
-*Descarga el siguiente archivo y ejecútalo para crear poblar de datos las tablas de la base de datos a modo de ejemplo. Puede insertar los datos que correspondan a su negocio o industria.*
+*Descarga el siguiente archivo y ejecútalo para poblar de datos las tablas de la base de datos a modo de ejemplo. Puede insertar los datos que correspondan a su negocio o industria.*
 [CLICKEA AQUÍ Y EJECUTA PARA POBLAR DE DATOS LAS TABLAS DE LA DB](/ind_shopping_population.sql)
