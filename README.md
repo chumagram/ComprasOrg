@@ -203,14 +203,20 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
 **Descripción:** esta funcion busca un un insumo pero se debe pasar el identificador o ID. Esto es más rápido en cuanto a procesamiento y/o si el usuario tiene el ID a mano, ya sea porque esta viendo una requisición o consumo realizado.  
 **Objetivo:** agilizar la búsqueda de un insumo si ya se posee su identificador.  
 **Tablas/datos:**  
+- Se aplica a las tablas que contengan insumos, pero solo a una de ellas a la vez. Puden ser las tablas:
+  1. insumo
+  2. consumo
+  3. requisicion_lista
+- Datos de entrada: id_insumo (identificador del insumo)
 
 ## 7. Stored procedures
 
 ### Procedure 1 - Buscar en estado general de un insumo
-**Descripción:** Este procedimiento almacenado o stored procedure, realiza la búsqueda en todas las posibles tablas en donde se puede encontrar el insumo, es decir, en las tablas "insumo", "consumo" y "requisicion_lista" y devuelve los resultados coincidentes.  
-**Objetivo:**Ver facilmente el estado de un insumo en la base de datos.  
-**Tablas/datos:**
-- 
+**Descripción:** Este procedimiento almacenado o stored procedure, realiza la búsqueda en todas las posibles tablas en donde se puede encontrar el insumo, es decir, en las tablas insumo, consumo y requisicion_lista; y devuelve los resultados coincidentes.  
+**Objetivo:** Ver facilmente el estado de un insumo en la base de datos.  
+**Tablas/datos:**  
+- Se aplica a las tablas: "insumo", "consumo" y "requisicion_lista" en simultaneo.
+- Datos de entrada: descripción o parte de la descripción de un insumo.
 
 ### Procedure 2 - Crear requisicion de compra
 **Descripción:** Este stored procedure tiene la capacidad de crear una nueva requisición de compra en la base de datos.  
