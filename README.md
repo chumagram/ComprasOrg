@@ -30,94 +30,102 @@ Luego, la base de datos también tendría la capacidad de:
 
 ### insumo:
 *Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
-| Nombre del campo         | Abreviatura | Tipo de datos    | Tipo de clave   |
-|--------------------------|-------------|------------------|-----------------|
-| Identificador del insumo | id_insumo   | UNSIGNED INTEGER | Clave primaria  |
-| Descripción del insumo   | descrip     | VARCHAR          |                 |
-| Cantidad del insumo      | stock       | UNSIGNED TINYINT |                 |
+| Nombre del campo           | Abreviatura | Tipo de datos      | Tipo de clave  | Valor máximo   |
+|----------------------------|-------------|--------------------|----------------|----------------|
+| Identificador del insumo   | id_insumo   | SMALLINT UNSIGNED  | Clave primaria | 65535          |
+| Descripción del insumo     | descripcion | VARCHAR            |                | 100 caracteres |
+| Cantidad del insumo        | stock       | MEDIUMINT UNSIGNED |                | 16777215       |
+| Cantidad minima del insumo | stock_min   | SMALLINT UNSIGNED  |                | 65535          |
 
 ### maquina:
 *Descripción: esta tabla corresponde a las maquinas que consumen insumos y producen tela. Tambien incluye los datos suficientes para describirla (faltan muchos otros pero no vienen al caso a no ser que se quiera complejizar enormemente la base de datos).*
-| Nombre del campo            | Abreviatura   | Tipo de datos    | Tipo de clave   |
-|-----------------------------|---------------|------------------|-----------------|
-| Identificador de la máquina | id_maquina    | UNSIGNED TINYINT | Clave primaria  |
-| Número de fabricación       | num_fabric    | UNSIGNED INTEGER |                 |
-| Año de fabricación          | anio_fabric   | YEAR             |                 |
-| Modelo de la máquina        | modelo        | VARCHAR          |                 |
-| Diámetro                    | diametro      | UNSIGNED TINYINT |                 |
-| Potencia                    | potencia      | UNSIGNED TINYINT |                 |
-| Alimentadores               | alimentadores | UNSIGNED TINYINT |                 |
+| Nombre del campo            | Abreviatura   | Tipo de datos     | Tipo de clave  | Valor máximo  |
+|-----------------------------|---------------|-------------------|----------------|---------------|
+| Identificador de la máquina | id_maquina    | CHAR              | Clave primaria | 5 caracteres  |
+| Número de máquina interno   | num_interno   | SMALLINT UNSIGNED |                | 65535         |
+| Número de fabricación       | num_fabric    | MEDIUMINT         |                | 16777215      |
+| Año de fabricación          | anio_fabric   | YEAR              |                |               |
+| Fabricante                  | fabricante    | VARCHAR           |                | 8 caracteres  |
+| Modelo de la máquina        | modelo        | VARCHAR           |                | 50 caracteres |
+| Diámetro                    | diametro      | UNSIGNED TINYINT  |                | 255           |
+| Potencia                    | potencia      | UNSIGNED TINYINT  |                | 255           |
+| Unidad de medida            | unidad_med    | CHAR              |                | 2 caracteres  |
+| Alimentadores               | alimentadores | UNSIGNED TINYINT  |                | 255           |
 
 ### proveedor:
 *Descripción: Esta tabla corresponde a los proveedores de insumos y se añade las firmas que representan, aunque las propias firmas pueden ser proveedores.*
-|       Nombre del campo      | Abreviatura   | Tipo de datos    |  Tipo de clave  |
-|-----------------------------|---------------|------------------|-----------------|
-| Identificador del proveedor | id_proveedor  | UNSIGNED TINYINT |  Clave primaria |
-| Nombre del proveedor        | nombre        | VARCHAR          |                 |
-| Pais donde reside           | pais          | VARCHAR          |                 |
-| Provincia donde reside      | provincia     | VARCHAR          |                 |
-| Ciudad donde reside         | ciudad        | VARCHAR          |                 |
-| Calle de locación           | calle         | VARCHAR          |                 |
-| Altura de la calle          | num_calle     | UNSIGNED TINYINT |                 |
-| Firmas que representa       | firmas_repre  | JSON             |                 |
+|       Nombre del campo      | Abreviatura   | Tipo de datos     |  Tipo de clave  | Valor máximo  |
+|-----------------------------|---------------|-------------------|-----------------|---------------|
+| Identificador del proveedor | id_proveedor  | SMALLINT UNSIGNED |  Clave primaria | 65535         |
+| Nombre del proveedor        | nombre        | VARCHAR           |                 | 50 caracteres |
+| Pais donde reside           | pais          | VARCHAR           |                 | 20 caracteres |
+| Provincia donde reside      | provincia     | VARCHAR           |                 | 30 caracteres |
+| Ciudad donde reside         | ciudad        | VARCHAR           |                 | 40 caracteres |
+| Calle de locación           | calle         | VARCHAR           |                 | 50 caracteres |
+| Altura de la calle          | num_calle     | SMALLINT UNSIGNED |                 | 65535         |
+| Firmas que representa       | firmas_repre  | JSON              |                 |               |
 
 ### contacto:
 *Descripción: Esta tabla representa a un contacto, que sería una persona que pertenece a una empresa que es proveedor y tiene la capacidad de guiarnos en el proceso de compra o consulta sobre insumos. Se añade los datos necesarios para justamente contactarnos con ella correctamente.*
-| Nombre del campo             | Abreviatura   | Tipo de datos    | Tipo de clave  |
-|------------------------------|---------------|------------------|----------------|
-| Identificador del contacto   | id_contacto   | UNSIGNED TINYINT | Clave primaria |
-| Identificación del proveedor | num_fabric    | UNSIGNED TINYINT | Clave foránea  |
-| Nombre del contacto          | nombre        | VARCHAR          |                |
-| Apellido del contacto        | apellido      | VARCHAR          |                |
-| Mail del contacto            | mail          | VARCHAR          |                |
-| Código de área               | cod_area      | UNSIGNED TINYINT |                |
-| Teléfono del contacto        | telefono      | UNSIGNED INTEGER |                |
+| Nombre del campo             | Abreviatura  | Tipo de datos     | Tipo de clave  | Valor máximo   |
+|------------------------------|--------------|-------------------|----------------|----------------|
+| Identificador del contacto   | id_contacto  | SMALLINT UNSIGNED | Clave primaria | 65535          |
+| Identificación del proveedor | id_proveedor | SMALLINT UNSIGNED | Clave foránea  | 65535          |
+| Nombre del contacto          | nombre       | VARCHAR           |                | 50 caracteres  |
+| Apellido del contacto        | apellido     | VARCHAR           |                | 50 caracteres  |
+| Mail del contacto            | mail         | VARCHAR           |                | 100 caracteres |
+| Teléfono del contacto        | telefono     | CHAR              |                | 16 caracteres  |
+| Puesto laboral que opcupa    | puesto_lab   | UNSIGNED INTEGER  |                | 50 caracteres  |
 
 ### requisicion:
 *Descripción: Esta tabla corresponde a una requisición o solicitud de compra que se envía a un determinado proveedor para que luego nos devuelva una cotización u oferta. Luego esa oferta será confirmada al proveedor para luego comprar o también se podrá cancelar. En conclusión, la requisición tendrá una serie definida de estados*
-| Nombre del campo                | Abreviatura    | Tipo de datos    | Tipo de clave   |
-|---------------------------------|----------------|------------------|-----------------|
-| Identificador de la requisicion | id_requisicion | UNSIGNED TINYINT | Clave primaria  |
-| Fecha de la requisicion         | fecha          | DATE             |                 |
-| Identificador del proveedor     | id_proveedor   | UNSIGNED TINYINT | Clave foránea   |
-| Numero de oferta                | num_oferta     | UNSIGNED INTEGER |                 |
-| Identificador del estado        | id_estado      | UNSIGNED TINYINT | Clave foránea   |
+| Nombre del campo                | Abreviatura    | Tipo de datos     | Tipo de clave   | Valor máximo    |
+|---------------------------------|----------------|-------------------|-----------------|-----------------|
+| Identificador de la requisicion | id_requisicion | SMALLINT UNSIGNED | Clave primaria  | 65535           |
+| Identificador del estado        | id_estado      | TINYINT UNSIGNED  | Clave foránea   | 255             |
+| Identificador del proveedor     | id_proveedor   | SMALLINT UNSIGNED | Clave foránea   | 65535           |
+| Fecha de la requisicion         | fecha          | DATE              |                 |                 |
+| Numero de oferta                | num_oferta     | VARCHAR           |                 |                 |
+| Link a la oferta                | link_oferta    | VARCHAR           |                 |                 |
 
-### insumo_proveedor:
+### catalogo:
 *Descripción: Esta tabla teiene la funcionalidad de interconectar o relacionar la tabla de insumos con la tabla de proveedores ya que en este caso se da una relacion de muchos a muchos, dicho de otra manera, muchos proveedores proveen muchos insumos. Un proveedor en su cartera de opciones puede contar con una gran cantidad de insumos. Visto del otro lado, un insumo es proveido por muchos proveedores.*
 
-| Nombre del campo                           | Abreviatura    | Tipo de datos    |  Tipo de clave  |
-|--------------------------------------------|----------------|------------------|-----------------|
-| Identificador de relacion proveedor-insumo | id_prove_insum | UNSIGNED TINYINT | Clave primaria  |
-| Identificador del proveedor                | id_proveedor   | UNSIGNED TINYINT | Clave foránea   |
-| Identificador del insumo                   | id_insumo      | UNSIGNED TINYINT | Clave foránea   |
+| Nombre del campo                  | Abreviatura      | Tipo de datos     | Tipo de clave  | Valor máximo |
+|-----------------------------------|------------------|-------------------|----------------|--------------|
+| Identificador de catalogo         | id_prove_insum   | SMALLINT UNSIGNED | Clave primaria | 65535        |
+| Identificador del proveedor       | id_proveedor     | SMALLINT UNSIGNED | Clave foránea  | 65535        |
+| Identificador del insumo          | id_insumo        | SMALLINT UNSIGNED | Clave foránea  | 65535        |
+| Código del insumo según proveedor | codigo_insu_prov | VARCHAR           |                |              |
 
 ### estado_req:
 *Descripción: Esta tabla tiene la funcion de contener los posbiles estados que pueda terner una requisicion. maquina_insumo*
 
-| Nombre del campo                       | Abreviatura   | Tipo de datos    |  Tipo de clave  |
-|----------------------------------------|---------------|------------------|-----------------|
-| Identificador de estado de requisicion | id_estado_req | UNSIGNED TINYINT | Clave primaria  |
-| Nombre del estado                      | nombre        | VARCHAR          |                 |
-| Descripcion del estado                 | descripcion   | VARCHAR          |                 |
+| Nombre del campo                       | Abreviatura   | Tipo de datos    | Tipo de clave  | Valor máximo   |
+|----------------------------------------|---------------|------------------|----------------|----------------|
+| Identificador de estado de requisicion | id_estado_req | TINYINT UNSIGNED | Clave primaria | 255            |
+| Nombre del estado                      | nombre        | VARCHAR          |                | 30 caracteres  |
+| Descripcion del estado                 | descripcion   | VARCHAR          |                | 150 caracteres |
 
-### maquina_insumo:
+### consumo:
 *Descripción: Esta tabla tiene la funcion de ser nexo y lograr la relacion entre las tablas maquina y la tabla insumo ya que entre ellas se da una relacion de muchos a muchos. La explicacion de esto sería de que una maquina puede utilzar muchos y diversos tipos de insumo, como así tambien un insumo puede ser ocupado en muchas maquinas ya que en la organizacion se cuenta con 116 máquinas circulares tejedoras, muy similares una con las otras.*
 
-| Nombre del campo                  | Abreviatura    | Tipo de datos    |  Tipo de clave  |
-|-----------------------------------|----------------|------------------|-----------------|
-| Id. de la relacion maquina-insumo | id_rel_ins_maq | UNSIGNED TINYINT | Clave primaria  |
-| Identificador de insumo           | id_insumo      | UNSIGNED TINYINT | Clave foránea   |
-| Identificador de la máquina       | id_maquina     | UNSIGNED TINYINT | Clave foránea   |
+| Nombre del campo            | Abreviatura    | Tipo de datos      | Tipo de clave  | Valor máximo |
+|-----------------------------|----------------|--------------------|----------------|--------------|
+| Identificador del consumo   | id_consumo     | MEDIUMINT UNSIGNED | Clave primaria | 16777215     |
+| Identificador de insumo     | id_insumo      | SMALLINT UNSIGNED  | Clave foránea  | 65535        |
+| Identificador de la máquina | id_maquina     | CHAR               | Clave foránea  | 5 caracteres |
+| Cantidad                    | cantidad       | SMALLINT UNSIGNED  |                | 65535        |
 
-### requisicion_lista_insumos:
+### requisicion_lista:
 *Descripción: Esta tabla tiene la funcion de contener la lista de insumos pero asignándole una cierta cantidad y requisición específica. Esto es debido a que en una requisicion o solicitud de compra, además de los datos de la requisición en sí, también se tiene una tabla adentro de la misma que contiene la lista de insumos a pedir.*
 
-| Nombre del campo                | Abreviatura    | Tipo de datos    |  Tipo de clave  |
-|---------------------------------|----------------|------------------|-----------------|
-| Identificador de la requisicion | id_requisicion | UNSIGNED TINYINT | Clave foránea   |
-| Identificador del insumo        | id_insumo      | UNSIGNED TINYINT | Clave foránea   |
-| Cantidad del insumo a solicitar | cantidad       | UNSIGNED TINYINT |                 |
+| Nombre del campo                      | Abreviatura    | Tipo de datos      |  Tipo de clave  | Valor máximo |
+|---------------------------------------|----------------|--------------------|-----------------|--------------|
+| Identificador de la lista de una req. | id_requisicion | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
+| Identificador de la requisicion       | id_requisicion | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
+| Identificador del insumo              | id_insumo      | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
+| Cantidad del insumo a solicitar       | cantidad       | MEDIUMINT UNSIGNED |                 | 16777215     |
 
 ## 4. Archivo SQL
 *En el siguiente link puedes encontrar la query que crea la base de datos con sus respectivas tablas y configraciones:*  
