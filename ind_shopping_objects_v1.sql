@@ -115,6 +115,47 @@ END //
 DELIMITER ;
 
 -- Crear Función 2: Buscar insumo en tabla según identificador
+DELIMITER $$
+
+CREATE FUNCTION buscar_insumo_por_id(in_id_insumo INT)
+RETURNS VARCHAR(255)
+DETERMINISTIC
+BEGIN
+    DECLARE resultado VARCHAR(255);
+
+    -- Buscar en la tabla insumo
+    SELECT CONCAT('Insumo: ', descripcion) INTO resultado
+    FROM insumo
+    WHERE id_insumo = in_id_insumo;
+    
+    IF resultado IS NOT NULL THEN
+        RETURN resultado;
+    END IF;
+
+    -- Buscar en la tabla consumo
+    SELECT CONCAT('Insumo en consumo, cantidad: ', cantidad) INTO resultado
+    FROM consumo
+    WHERE id_insumo = in_id_insumo;
+    
+    IF resultado IS NOT NULL THEN
+        RETURN resultado;
+    END IF;
+
+    -- Buscar en la tabla requisicion_lista
+    SELECT CONCAT('Insumo en requisicion, cantidad: ', cantidad) INTO resultado
+    FROM requisicion_lista
+    WHERE id_insumo = in_id_insumo;
+    
+    IF resultado IS NOT NULL THEN
+        RETURN resultado;
+    END IF;
+
+    -- Si no se encontró en ninguna tabla
+    RETURN 'Insumo no encontrado';
+
+END$$
+
+DELIMITER ;
 
 -- Crear Store Procedure de buscador general de estado de insumo
 DELIMITER //
