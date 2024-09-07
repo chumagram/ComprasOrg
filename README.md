@@ -39,18 +39,18 @@ Luego, la base de datos también tendría la capacidad de:
 
 ### maquina:
 *Descripción: esta tabla corresponde a las maquinas que consumen insumos y producen tela. Tambien incluye los datos suficientes para describirla (faltan muchos otros pero no vienen al caso a no ser que se quiera complejizar enormemente la base de datos).*
-| Nombre del campo            | Abreviatura   | Tipo de datos     | Tipo de clave  | Valor máximo  |
-|-----------------------------|---------------|-------------------|----------------|---------------|
-| Identificador de la máquina | id_maquina    | CHAR              | Clave primaria | 5 caracteres  |
-| Número de máquina interno   | num_interno   | SMALLINT UNSIGNED |                | 65535         |
-| Número de fabricación       | num_fabric    | MEDIUMINT         |                | 16777215      |
-| Año de fabricación          | anio_fabric   | YEAR              |                |               |
-| Fabricante                  | fabricante    | VARCHAR           |                | 8 caracteres  |
-| Modelo de la máquina        | modelo        | VARCHAR           |                | 50 caracteres |
-| Diámetro                    | diametro      | UNSIGNED TINYINT  |                | 255           |
-| Potencia                    | potencia      | UNSIGNED TINYINT  |                | 255           |
-| Unidad de medida            | unidad_med    | CHAR              |                | 2 caracteres  |
-| Alimentadores               | alimentadores | UNSIGNED TINYINT  |                | 255           |
+| Nombre del campo            | Abreviatura      | Tipo de datos     | Tipo de clave  | Valor máximo  |
+|-----------------------------|------------------|-------------------|----------------|---------------|
+| Identificador de la máquina | id_maquina       | CHAR              | Clave primaria | 5 caracteres  |
+| Número de máquina interno   | num_interno      | SMALLINT UNSIGNED |                | 65535         |
+| Número de fabricación       | num_fabricacion  | MEDIUMINT         |                | 16777215      |
+| Año de fabricación          | anio_fabricacion | YEAR              |                |               |
+| Fabricante                  | fabricante       | VARCHAR           |                | 8 caracteres  |
+| Modelo de la máquina        | modelo           | VARCHAR           |                | 50 caracteres |
+| Diámetro                    | diametro         | UNSIGNED TINYINT  |                | 255           |
+| Potencia                    | potencia         | UNSIGNED TINYINT  |                | 255           |
+| Unidad de medida            | unidad_med       | CHAR              |                | 2 caracteres  |
+| Alimentadores               | alimentadores    | UNSIGNED TINYINT  |                | 255           |
 
 ### proveedor:
 *Descripción: Esta tabla corresponde a los proveedores de insumos y se añade las firmas que representan, aunque las propias firmas pueden ser proveedores.*
@@ -75,7 +75,7 @@ Luego, la base de datos también tendría la capacidad de:
 | Apellido del contacto        | apellido     | VARCHAR           |                | 50 caracteres  |
 | Mail del contacto            | mail         | VARCHAR           |                | 100 caracteres |
 | Teléfono del contacto        | telefono     | CHAR              |                | 16 caracteres  |
-| Puesto laboral que opcupa    | puesto_lab   | UNSIGNED INTEGER  |                | 50 caracteres  |
+| Puesto laboral que opcupa    | puesto_lab   | VARCHAR           |                | 50 caracteres  |
 
 ### requisicion:
 *Descripción: Esta tabla corresponde a una requisición o solicitud de compra que se envía a un determinado proveedor para que luego nos devuelva una cotización u oferta. Luego esa oferta será confirmada al proveedor para luego comprar o también se podrá cancelar. En conclusión, la requisición tendrá una serie definida de estados*
@@ -85,18 +85,18 @@ Luego, la base de datos también tendría la capacidad de:
 | Identificador del estado        | id_estado      | TINYINT UNSIGNED  | Clave foránea   | 255             |
 | Identificador del proveedor     | id_proveedor   | SMALLINT UNSIGNED | Clave foránea   | 65535           |
 | Fecha de la requisicion         | fecha          | DATE              |                 |                 |
-| Numero de oferta                | num_oferta     | VARCHAR           |                 |                 |
+| Numero de oferta                | num_oferta     | VARCHAR           |                 | 20 caracteres   |
 | Link a la oferta                | link_oferta    | VARCHAR           |                 |                 |
 
 ### catalogo:
 *Descripción: Esta tabla teiene la funcionalidad de interconectar o relacionar la tabla de insumos con la tabla de proveedores ya que en este caso se da una relacion de muchos a muchos, dicho de otra manera, muchos proveedores proveen muchos insumos. Un proveedor en su cartera de opciones puede contar con una gran cantidad de insumos. Visto del otro lado, un insumo es proveido por muchos proveedores.*
 
-| Nombre del campo                  | Abreviatura      | Tipo de datos     | Tipo de clave  | Valor máximo |
-|-----------------------------------|------------------|-------------------|----------------|--------------|
-| Identificador de catalogo         | id_prove_insum   | SMALLINT UNSIGNED | Clave primaria | 65535        |
-| Identificador del proveedor       | id_proveedor     | SMALLINT UNSIGNED | Clave foránea  | 65535        |
-| Identificador del insumo          | id_insumo        | SMALLINT UNSIGNED | Clave foránea  | 65535        |
-| Código del insumo según proveedor | codigo_insu_prov | VARCHAR           |                |              |
+| Nombre del campo                  | Abreviatura      | Tipo de datos     | Tipo de clave  | Valor máximo  |
+|-----------------------------------|------------------|-------------------|----------------|---------------|
+| Identificador de catalogo         | id_prove_insum   | SMALLINT UNSIGNED | Clave primaria | 65535         |
+| Identificador del proveedor       | id_proveedor     | SMALLINT UNSIGNED | Clave foránea  | 65535         |
+| Identificador del insumo          | id_insumo        | SMALLINT UNSIGNED | Clave foránea  | 65535         |
+| Código del insumo según proveedor | codigo_insu_prov | VARCHAR           |                | 20 caracteres |
 
 ### estado_req:
 *Descripción: Esta tabla tiene la funcion de contener los posbiles estados que pueda terner una requisicion. maquina_insumo*
@@ -122,7 +122,7 @@ Luego, la base de datos también tendría la capacidad de:
 
 | Nombre del campo                      | Abreviatura    | Tipo de datos      |  Tipo de clave  | Valor máximo |
 |---------------------------------------|----------------|--------------------|-----------------|--------------|
-| Identificador de la lista de req.     | id_lista_req   | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
+| Identificador de la lista de req.     | id_lista_req   | SMALLINT UNSIGNED  | Clave primaria  | 65535        |
 | Identificador de la requisicion       | id_requisicion | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
 | Identificador del insumo              | id_insumo      | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
 | Cantidad del insumo a solicitar       | cantidad       | MEDIUMINT UNSIGNED |                 | 16777215     |
