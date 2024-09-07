@@ -122,7 +122,7 @@ Luego, la base de datos también tendría la capacidad de:
 
 | Nombre del campo                      | Abreviatura    | Tipo de datos      |  Tipo de clave  | Valor máximo |
 |---------------------------------------|----------------|--------------------|-----------------|--------------|
-| Identificador de la lista de una req. | id_requisicion | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
+| Identificador de la lista de req.     | id_lista_req   | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
 | Identificador de la requisicion       | id_requisicion | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
 | Identificador del insumo              | id_insumo      | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
 | Cantidad del insumo a solicitar       | cantidad       | MEDIUMINT UNSIGNED |                 | 16777215     |
