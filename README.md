@@ -129,12 +129,9 @@ Luego, la base de datos también tendría la capacidad de:
 
 ## 4. Archivo SQL
 *En el siguiente link puedes encontrar la query que crea la base de datos con sus respectivas tablas y configraciones:*  
-[CLICKEA AQUI](/init_ind_shopping.sql)
-#### 4.1. Mejoras
-La base de datos que acabas de crear, tiene algunas dificultades técnicas que son corregidas según la siguiente query:  
-[CLICKEA AQUÍ Y EJECUTA LA QUERY PARA TENER LA VERSIÓN MEJORADA](/init_ind_shopping_v2.sql)
+[CLICKEA AQUI](/ind_shopping_init.sql)
 
-# Segunda entrega - Vistas, triggers y population
+# Segunda entrega - Vistas, funciones, stored procedures y population
 En este apartado se agrearán vistas, funciones, stored procedures y un population con datos correspondientes a la base de datos creada en el apartado anterior o entregable 1.
 
 ## 5. Vistas
@@ -241,7 +238,7 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
 
 ### 8.1. Script de creación de objetos:
 *Descarga el siguiente archivo y ejecútalo para crear las vistas, funciones y stored procedures que te serán útiles en el día a día usando la db deñ Gestór de compras industriales*
-[CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects_v1.sql)
+[CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects.sql)
 
 ### 8.2. Script de inserción de datos:
 *Descarga el siguiente archivo y ejecútalo para poblar de datos las tablas de la base de datos a modo de ejemplo. Puede insertar los datos que correspondan a su negocio o industria.*
