@@ -33,16 +33,15 @@ SELECT
     r.fecha,
     p.nombre AS proveedor_nombre,
     er.nombre AS estado,
-    r.solicitante,
-    r.comentario
+    r.link_oferta
 FROM 
     requisicion r
 JOIN 
-    estado_req er ON r.id_estado = er.id_estado
+    estado_req er ON r.id_estado_req = er.id_estado_req
 JOIN 
     proveedor p ON r.id_proveedor = p.id_proveedor
 WHERE 
-    er.nombre != 'Completada';
+    er.nombre != 'Llegó completo';
 
 -- Crear Vista 4 - Proveedores e Insumos Suministrados
 CREATE VIEW proveedores_insumos AS
