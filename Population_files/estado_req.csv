@@ -1,0 +1,11 @@
+id_estado;nombre;descripcion
+1;En formación;La requisició nesta en elavoración por parte de los que la van a solicitar
+2;Enviado a cotizar;Se mandó al proveedor para que lo cotice con el fabricante
+3;Cotizado;El proveedor mandó la cotización
+4;Evaluando cotización;La cotización está en evaluación por los solicitantes o por el comprador
+5;En negociación;El comprador inició una negociación con el proveedor o fabricante
+6;Oferta final;El proveedor mandó la oferta final y se la aceptó
+7;En fabricación;El proveedor o fabricante está preparando el material requerido
+8;En camino;En camino hasta la planta productiva
+9;Llegó incompleto;La compra llegó a planta, se la controló y faltaron enviar insumos
+10;Llegó completo;La compra llegó a planta, se la controló y no faltaron insumos
