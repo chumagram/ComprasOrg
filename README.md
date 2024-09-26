@@ -83,13 +83,13 @@ Luego, la base de datos también tendría la capacidad de:
 | Pais donde reside la firma | pais         | VARCHAR           |                | 20 caracteres |
 | Moneda que usa la firma    | provincia    | VARCHAR           |                | 5 caracteres  |
 
-### representaciones:
+### representacion:
 *Descripción: Esta tabla tiene el fin de lograr relacionar las firmas con los proveedores y esto se hace literalmente con las representaciones, es decir, los proveedores son representantes de una serie de firmas y ellos a su vez son intermediarios entre la fábrica/organización (consumidor final) y la firma.*
-| Nombre del campo                   | Abreviatura  | Tipo de datos     | Tipo de clave  | Valor máximo |
-|------------------------------------|--------------|-------------------|----------------|--------------|
-| Identificador de la representación | id_proveedor | SMALLINT UNSIGNED | Clave primaria | 65535        |
-| Identificacor de la firma          | id_proveedor | SMALLINT UNSIGNED | Clave foránea  | 65535        |
-| Identificador del proveedor        | id_proveedor | SMALLINT UNSIGNED | Clave foránea  | 65535        |
+| Nombre del campo                   | Abreviatura       | Tipo de datos     | Tipo de clave  | Valor máximo |
+|------------------------------------|-------------------|-------------------|----------------|--------------|
+| Identificador de la representación | id_representacion | SMALLINT UNSIGNED | Clave primaria | 65535        |
+| Identificacor de la firma          | id_firma          | SMALLINT UNSIGNED | Clave foránea  | 65535        |
+| Identificador del proveedor        | id_proveedor      | SMALLINT UNSIGNED | Clave foránea  | 65535        |
 
 ### contacto:
 *Descripción: Esta tabla representa a un contacto, que sería una persona que pertenece a una empresa que es proveedor y tiene la capacidad de guiarnos en el proceso de compra o consulta sobre insumos. Se añade los datos necesarios para justamente contactarnos con ella correctamente.*
