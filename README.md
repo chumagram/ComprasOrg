@@ -24,18 +24,28 @@ Luego, la base de datos también tendría la capacidad de:
 - Seguimiento de proveedores e insumos que suministran.
 
 ## 2. Diagrama entidad relación
-![Diagrama entidad relación](/DER_v4.jpg)
+![Diagrama entidad relación](/DER_v5.jpg)
 
 ## 3. Listado de tablas
 
 ### insumo:
-*Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente*
-| Nombre del campo           | Abreviatura | Tipo de datos      | Tipo de clave  | Valor máximo   |
-|----------------------------|-------------|--------------------|----------------|----------------|
-| Identificador del insumo   | id_insumo   | SMALLINT UNSIGNED  | Clave primaria | 65535          |
-| Descripción del insumo     | descripcion | VARCHAR            |                | 100 caracteres |
-| Cantidad del insumo        | stock       | MEDIUMINT UNSIGNED |                | 16777215       |
-| Cantidad minima del insumo | stock_min   | SMALLINT UNSIGNED  |                | 65535          |
+*Descripción: esta tabla corresponde a cada insumo que se utiliza en el mantenimiento de tejeduría y los datos necesarios para describirlo completamente.*
+| Nombre del campo                        | Abreviatura         | Tipo de datos      | Tipo de clave  | Valor máximo   |
+|-----------------------------------------|---------------------|--------------------|----------------|----------------|
+| Identificador del insumo                | id_insumo           | SMALLINT UNSIGNED  | Clave primaria | 65535          |
+| Descripción del insumo                  | descripcion         | VARCHAR            |                | 100 caracteres |
+| Cantidad del insumo                     | stock               | MEDIUMINT UNSIGNED |                | 16777215       |
+| Cantidad máxima del insumo              | stock_max           | MEDIUMINT UNSIGNED |                | 16777215       |
+| Cantidad mínima del insumo              | stock_min           | SMALLINT UNSIGNED  |                | 65535          |
+| Identificador de la categoría de insumo | id_categoria_insumo | SMALLINT UNSIGNED  | Clave foránea  | 65535          |
+
+### categoria_insumo:
+*Descripción: esta tabla tiene la función de poder clasificar los insumos para poder agruparlos y que sea más facil realizar búsquedas o tambien ayudar a segmentear en un análisis.*
+| Nombre del campo                        | Abreviatura         | Tipo de datos      | Tipo de clave  | Valor máximo   |
+|-----------------------------------------|---------------------|--------------------|----------------|----------------|
+| Identificador de la categoría de insumo | id_categoria_insumo | SMALLINT UNSIGNED  | Clave primaria | 65535          |
+| Nombre de la categoría de insumo        | nombre              | VARCHAR            |                | 30 caracteres  |
+| Descripcion de la categoría de insumo   | descripcion         | VARCHAR            |                | 150 caracteres |
 
 ### maquina:
 *Descripción: esta tabla corresponde a las maquinas que consumen insumos y producen tela. Tambien incluye los datos suficientes para describirla (faltan muchos otros pero no vienen al caso a no ser que se quiera complejizar enormemente la base de datos).*
@@ -54,16 +64,32 @@ Luego, la base de datos también tendría la capacidad de:
 
 ### proveedor:
 *Descripción: Esta tabla corresponde a los proveedores de insumos y se añade las firmas que representan, aunque las propias firmas pueden ser proveedores.*
-|       Nombre del campo      | Abreviatura   | Tipo de datos     |  Tipo de clave  | Valor máximo  |
-|-----------------------------|---------------|-------------------|-----------------|---------------|
-| Identificador del proveedor | id_proveedor  | SMALLINT UNSIGNED |  Clave primaria | 65535         |
-| Nombre del proveedor        | nombre        | VARCHAR           |                 | 50 caracteres |
-| Pais donde reside           | pais          | VARCHAR           |                 | 20 caracteres |
-| Provincia donde reside      | provincia     | VARCHAR           |                 | 30 caracteres |
-| Ciudad donde reside         | ciudad        | VARCHAR           |                 | 40 caracteres |
-| Calle de locación           | calle         | VARCHAR           |                 | 50 caracteres |
-| Altura de la calle          | num_calle     | SMALLINT UNSIGNED |                 | 65535         |
-| Firmas que representa       | firmas_repre  | JSON              |                 |               |
+|       Nombre del campo      | Abreviatura  | Tipo de datos     | Tipo de clave  | Valor máximo  |
+|-----------------------------|--------------|-------------------|----------------|---------------|
+| Identificador del proveedor | id_proveedor | SMALLINT UNSIGNED | Clave primaria | 65535         |
+| Nombre del proveedor        | nombre       | VARCHAR           |                | 50 caracteres |
+| Pais donde reside           | pais         | VARCHAR           |                | 20 caracteres |
+| Provincia donde reside      | provincia    | VARCHAR           |                | 30 caracteres |
+| Ciudad donde reside         | ciudad       | VARCHAR           |                | 40 caracteres |
+| Calle de locación           | calle        | VARCHAR           |                | 50 caracteres |
+| Altura de la calle          | num_calle    | SMALLINT UNSIGNED |                | 65535         |
+
+### firma:
+*Descripción: Esta tabla contiene los datos referidos a las firmas, es decir a los fabricantes y/o otras organizaciones que medainte los proveedores, ponen a disposición los insumos que se pueden adquirir. Igualmente, los proveedores pueden ser la firma en sí mismo, pero esto no estará contemplado o representará alguna condicion o relación en la base de datos.*
+| Nombre del campo           | Abreviatura  | Tipo de datos     | Tipo de clave  | Valor máximo  |
+|----------------------------|--------------|-------------------|----------------|---------------|
+| Identificador de la firma  | id_proveedor | SMALLINT UNSIGNED | Clave primaria | 65535         |
+| Nombre de la firma         | nombre       | VARCHAR           |                | 50 caracteres |
+| Pais donde reside la firma | pais         | VARCHAR           |                | 20 caracteres |
+| Moneda que usa la firma    | provincia    | VARCHAR           |                | 5 caracteres  |
+
+### representaciones:
+*Descripción: Esta tabla tiene el fin de lograr relacionar las firmas con los proveedores y esto se hace literalmente con las representaciones, es decir, los proveedores son representantes de una serie de firmas y ellos a su vez son intermediarios entre la fábrica/organización (consumidor final) y la firma.*
+| Nombre del campo                   | Abreviatura  | Tipo de datos     | Tipo de clave  | Valor máximo |
+|------------------------------------|--------------|-------------------|----------------|--------------|
+| Identificador de la representación | id_proveedor | SMALLINT UNSIGNED | Clave primaria | 65535        |
+| Identificacor de la firma          | id_proveedor | SMALLINT UNSIGNED | Clave foránea  | 65535        |
+| Identificador del proveedor        | id_proveedor | SMALLINT UNSIGNED | Clave foránea  | 65535        |
 
 ### contacto:
 *Descripción: Esta tabla representa a un contacto, que sería una persona que pertenece a una empresa que es proveedor y tiene la capacidad de guiarnos en el proceso de compra o consulta sobre insumos. Se añade los datos necesarios para justamente contactarnos con ella correctamente.*
