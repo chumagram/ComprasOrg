@@ -49,7 +49,6 @@ CREATE TABLE ind_shopping.proveedor (
   ciudad VARCHAR(40) NULL,
   calle VARCHAR(50) NULL,
   num_calle SMALLINT UNSIGNED NULL,
-  firmas_repre JSON,
   PRIMARY KEY (id_proveedor)
 );
 

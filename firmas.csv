@@ -1,0 +1,51 @@
+id_firma;nombre;pais;moneda
+1;Memminger-Iro;Alemania;EUR
+2;Pneumax;Portugal;EUR
+3;Schneider Electric;Alemania;EUR
+4;Oerlikon;Alemania;EUR
+5;Danaher;Estados Unidos;USD
+6;LGL Electronics;Italia;EUR
+7;Baldor Electric;Estados Unidos;USD
+8;Aventics;Alemania;EUR
+9;Groz-Beckert;Alemania;EUR
+10;SKF;Suecia;SEK
+11;ABB;Suiza;CHF
+12;Staubli;Suiza;CHF
+13;Saurer;Suiza;CHF
+14;Bosch Rexroth;Alemania;EUR
+15;Groth;Estados Unidos;USD
+16;Rexnord;Estados Unidos;USD
+17;NORD Drivesystems;Alemania;EUR
+18;Camozzi;Italia;EUR
+19;Parker Hannifin;Estados Unidos;USD
+20;Stoll;Alemania;EUR
+21;Festo;Alemania;EUR
+22;Siemens;Alemania;EUR
+23;Karl Mayer;Alemania;EUR
+24;Monarch;Estados Unidos;USD
+25;NSK;Japón;JPY
+26;Stäubli Robotics;Suiza;CHF
+27;Vandewiele;Bélgica;EUR
+28;Eaton;Estados Unidos;USD
+29;SEW Eurodrive;Alemania;EUR
+30;Timken;Estados Unidos;USD
+31;Lonati;Italia;EUR
+32;Mayer & Cie.;Alemania;EUR
+33;SMC Pneumatics;Japón;JPY
+34;Jakob Müller;Suiza;CHF
+35;Omron;Japón;JPY
+36;Unitex;Estados Unidos;USD
+37;Orizio;Italia;EUR
+38;INA;Alemania;EUR
+39;Phoenix Contact;Alemania;EUR
+40;Santex Rimar Group;Suiza;CHF
+41;Lenze;Alemania;EUR
+42;Norgren;Reino Unido;GBP
+43;Terrot;Alemania;EUR
+44;BTSR;Italia;EUR
+45;Rieter;Suiza;CHF
+46;FAG;Alemania;EUR
+47;Colombo Filippetti;Italia;EUR
+48;Picanol;Bélgica;EUR
+49;Danfoss;Dinamarca;DKK
+50;Santoni;Italia;EUR
