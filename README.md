@@ -24,7 +24,7 @@ Luego, la base de datos también tendría la capacidad de:
 - Seguimiento de proveedores e insumos que suministran.
 
 ## 2. Diagrama entidad relación
-![Diagrama entidad relación](/DER_v5.jpg)
+![Diagrama entidad relación](/DER_v6.jpg)
 
 ## 3. Listado de tablas
 
@@ -49,18 +49,18 @@ Luego, la base de datos también tendría la capacidad de:
 
 ### maquina:
 *Descripción: esta tabla corresponde a las maquinas que consumen insumos y producen tela. Tambien incluye los datos suficientes para describirla (faltan muchos otros pero no vienen al caso a no ser que se quiera complejizar enormemente la base de datos).*
-| Nombre del campo            | Abreviatura      | Tipo de datos     | Tipo de clave  | Valor máximo  |
-|-----------------------------|------------------|-------------------|----------------|---------------|
-| Identificador de la máquina | id_maquina       | CHAR              | Clave primaria | 5 caracteres  |
-| Número de máquina interno   | num_interno      | SMALLINT UNSIGNED |                | 65535         |
-| Número de fabricación       | num_fabricacion  | MEDIUMINT         |                | 16777215      |
-| Año de fabricación          | anio_fabricacion | YEAR              |                |               |
-| Fabricante                  | fabricante       | VARCHAR           |                | 8 caracteres  |
-| Modelo de la máquina        | modelo           | VARCHAR           |                | 50 caracteres |
-| Diámetro                    | diametro         | UNSIGNED TINYINT  |                | 255           |
-| Potencia                    | potencia         | UNSIGNED TINYINT  |                | 255           |
-| Unidad de medida            | unidad_med       | CHAR              |                | 2 caracteres  |
-| Alimentadores               | alimentadores    | UNSIGNED TINYINT  |                | 255           |
+| Nombre del campo            | Abreviatura      | Tipo de datos       | Tipo de clave  | Valor máximo  |
+|-----------------------------|------------------|---------------------|----------------|---------------|
+| Identificador de la máquina | id_maquina       | CHAR                | Clave primaria | 5 caracteres  |
+| Número de máquina interno   | num_interno      | SMALLINT UNSIGNED   |                | 65535         |
+| Número de fabricación       | num_fabricacion  | MEDIUMINT           |                | 16777215      |
+| Año de fabricación          | anio_fabricacion | YEAR                |                |               |
+| Fabricante                  | fabricante       | VARCHAR             |                | 8 caracteres  |
+| Modelo de la máquina        | modelo           | VARCHAR             |                | 50 caracteres |
+| Diámetro                    | diametro         | UNSIGNED TINYINT    |                | 255           |
+| Potencia                    | potencia         | UNSIGNED FLOAT(3,2) |                | 999,99        |
+| Unidad de medida            | unidad_med       | CHAR                |                | 2 caracteres  |
+| Alimentadores               | alimentadores    | UNSIGNED TINYINT    |                | 255           |
 
 ### proveedor:
 *Descripción: Esta tabla corresponde a los proveedores de insumos y se añade las firmas que representan, aunque las propias firmas pueden ser proveedores.*
@@ -122,7 +122,6 @@ Luego, la base de datos también tendría la capacidad de:
 | Identificador de catalogo         | id_prove_insum   | SMALLINT UNSIGNED | Clave primaria | 65535         |
 | Identificador del proveedor       | id_proveedor     | SMALLINT UNSIGNED | Clave foránea  | 65535         |
 | Identificador del insumo          | id_insumo        | SMALLINT UNSIGNED | Clave foránea  | 65535         |
-| Código del insumo según proveedor | codigo_insu_prov | VARCHAR           |                | 20 caracteres |
 
 ### estado_req:
 *Descripción: Esta tabla tiene la funcion de contener los posbiles estados que pueda terner una requisicion. maquina_insumo*
