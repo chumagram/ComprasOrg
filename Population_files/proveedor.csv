@@ -1,130 +1,31 @@
-id_proveedor;nombre;pais;provincia;ciudad;calle;num_calle;firmas_repre
-1;TecnoRepuestos;Argentina;Buenos Aires;Buenos Aires;Av. Rivadavia;1234;"{""firma_1"": ""Memminger-Iro"", 
- ""firma_2"": ""Groz-Beckert"", 
- ""firma_3"": ""Mayer & Cie."", 
- ""firma_4"": ""Lonati"", 
- ""firma_5"": ""Stoll"", 
- ""firma_6"": ""Santoni""}"
-2;PneumaTech;Brasil;São Paulo;São Paulo;Rua 25 de Março;567;"{""firma_1"": ""Pneumax"", 
- ""firma_2"": ""Festo"", 
- ""firma_3"": ""SMC Pneumatics"", 
- ""firma_4"": ""Norgren""}"
-3;ElectraCom;México;Jalisco;Guadalajara;Av. Vallarta;789;"{""firma_1"": ""Schneider Electric"", 
- ""firma_2"": ""Siemens"", 
- ""firma_3"": ""ABB"", 
- ""firma_4"": ""Phoenix Contact"", 
- ""firma_5"": ""Omron"", 
- ""firma_6"": ""Eaton""}"
-4;TexMaquinaria;Colombia;Antioquia;Medellín;Cra. 70;123;"{""firma_1"": ""Oerlikon"", 
- ""firma_2"": ""Karl Mayer"", 
- ""firma_3"": ""Jakob Müller"", 
- ""firma_4"": ""Terrot""}"
-5;Automatizaciones Alvarez;España;Madrid;Madrid;Calle Serrano;456;"{""firma_1"": ""Danaher"", 
- ""firma_2"": ""Rexnord"", 
- ""firma_3"": ""SKF"", 
- ""firma_4"": ""Timken""}"
-6;ElectroPunto;Chile;Santiago;Santiago;Av. Apoquindo;1010;"{""firma_1"": ""ABB"", 
- ""firma_2"": ""Schneider Electric"", 
- ""firma_3"": ""Siemens"", 
- ""firma_4"": ""Omron""}"
-7;MaquiTej;Perú;Lima;Lima;Jr. De la Unión;2020;"{""firma_1"": ""LGL Electronics"", 
- ""firma_2"": ""Memminger-Iro"", 
- ""firma_3"": ""Unitex"", 
- ""firma_4"": ""BTSR""}"
-8;Conectores del Sur;Argentina;Córdoba;Córdoba;Bv. San Juan;1212;"{""firma_1"": ""Baldor Electric"", 
- ""firma_2"": ""NORD Drivesystems"", 
- ""firma_3"": ""SEW Eurodrive"", 
- ""firma_4"": ""Siemens""}"
-9;TechNeumatica;Uruguay;Montevideo;Montevideo;18 de Julio;543;"{""firma_1"": ""Aventics"", 
- ""firma_2"": ""Parker Hannifin"", 
- ""firma_3"": ""Camozzi"", 
- ""firma_4"": ""SMC Pneumatics""}"
-10;Repuestos Muller;Alemania;Baviera;Múnich;Königsallee;321;"{""firma_1"": ""Groz-Beckert"", 
- ""firma_2"": ""Monarch"", 
- ""firma_3"": ""Orizio"", 
- ""firma_4"": ""Rieter""}"
-11;Piezas Omega;Italia;Lombardía;Milán;Via Montenapoleone;222;"{""firma_1"": ""SKF"", 
- ""firma_2"": ""NSK"", 
- ""firma_3"": ""INA"", 
- ""firma_4"": ""FAG""}"
-12;Controles S.A.;España;Barcelona;Barcelona;Gran Vía;654;"{""firma_1"": ""ABB"", 
- ""firma_2"": ""Schneider Electric"", 
- ""firma_3"": ""Phoenix Contact"", 
- ""firma_4"": ""Eaton""}"
-13;TexGlobal;Portugal;Lisboa;Lisboa;Rua Augusta;987;"{""firma_1"": ""Staubli"", 
- ""firma_2"": ""Stäubli Robotics"", 
- ""firma_3"": ""Groth"", 
- ""firma_4"": ""Colombo Filippetti""}"
-14;Mecatej;Ecuador;Pichincha;Quito;Av. Amazonas;567;"{""firma_1"": ""Saurer"", 
- ""firma_2"": ""Vandewiele"", 
- ""firma_3"": ""Santex Rimar Group"", 
- ""firma_4"": ""Picanol""}"
-15;Componentes JT;Argentina;Mendoza;Mendoza;Av. Las Heras;444;"{""firma_1"": ""Bosch Rexroth"", 
- ""firma_2"": ""Festo"", 
- ""firma_3"": ""Parker Hannifin"", 
- ""firma_4"": ""Aventics""}"
-16;NeumaRep;Brasil;Rio de Janeiro;Río de Janeiro;Av. Rio Branco;111;"{""firma_1"": ""ABB"", 
- ""firma_2"": ""Eaton"", 
- ""firma_3"": ""Schneider Electric"", 
- ""firma_4"": ""Siemens""}"
-17;ElectroPartes;Paraguay;Asunción;Asunción;Av. Mariscal López;1500;"{""firma_1"": ""Groth"", 
- ""firma_2"": ""Monarch"", 
- ""firma_3"": ""Memminger-Iro"", 
- ""firma_4"": ""Groz-Beckert"", 
- ""firma_5"": ""Stoll""}"
-18;TechTools;Bolivia;La Paz;La Paz;Av. Montes;333;"{""firma_1"": ""Rexnord"", 
- ""firma_2"": ""SEW Eurodrive"", 
- ""firma_3"": ""NORD Drivesystems"", 
- ""firma_4"": ""Danfoss""}"
-19;Automatizaciones Garcia;Uruguay;Canelones;Canelones;Ruta 5;777;"{""firma_1"": ""NORD Drivesystems"", 
- ""firma_2"": ""Baldor Electric"", 
- ""firma_3"": ""Lenze"", 
- ""firma_4"": ""Siemens""}"
-20;Componentes Técnicos S.A.;Chile;Valparaíso;Valparaíso;Av. Errázuriz;112;"{""firma_1"": ""Camozzi"", 
- ""firma_2"": ""Parker Hannifin"", 
- ""firma_3"": ""SMC Pneumatics"", 
- ""firma_4"": ""Festo""}"
-21;InoxRepuestos;Brasil;São Paulo;Campinas;Rua Américo Brasiliense;88;"{""firma_1"": ""Memminger-Iro"", 
- ""firma_2"": ""Groz-Beckert"", 
- ""firma_3"": ""Stoll"", 
- ""firma_4"": ""Karl Mayer""}"
-22;Piezas Tecno S.R.L.;México;Ciudad de México;CDMX;Insurgentes Sur;500;"{""firma_1"": ""Memminger-Iro"", 
- ""firma_2"": ""Groz-Beckert"", 
- ""firma_3"": ""Stoll"", 
- ""firma_4"": ""Karl Mayer""}"
-23;Sistemas Integrales;Perú;Callao;Callao;Av. Faucett;134;"{""firma_1"": ""Pneumax"", 
- ""firma_2"": ""Aventics"", 
- ""firma_3"": ""Norgren"", 
- ""firma_4"": ""Festo"", 
- ""firma_5"": ""SMC Pneumatics""}"
-24;Repuestos y Servicios Ltda.;Colombia;Valle del Cauca;Cali;Calle 13;890;"{""firma_1"": ""Rexnord"", 
- ""firma_2"": ""SKF"", 
- ""firma_3"": ""NSK"", 
- ""firma_4"": ""INA""}"
-25;Mecánica Especializada;Argentina;Buenos Aires;La Plata;Calle 9;312;"{""firma_1"": ""Schneider Electric"", 
- ""firma_2"": ""ABB"", 
- ""firma_3"": ""Siemens"", 
-{""firma_1"": ""Santoni"", 
- ""firma_2"": ""Lonati"", 
- ""firma_3"": ""Mayer & Cie."", 
- ""firma_4"": ""Monarch""}"
-26;ElectroTec;España;Sevilla;Sevilla;Calle Sierpes;212;"{""firma_1"": ""Memminger-Iro"", 
- ""firma_2"": ""Stoll"", 
- ""firma_3"": ""Lonati"", 
- ""firma_4"": ""Groz-Beckert""}"
-27;MaquinasCirculares S.R.L.;Argentina;Santa Fe;Rosario;Bv. Oroño;678;"{""firma_1"": ""SKF"", 
- ""firma_2"": ""Timken"", 
- ""firma_3"": ""Rexnord"", 
- ""firma_4"": ""NSK""}"
-28;TecnoComp;Italia;Veneto;Venecia;Piazza San Marco;321;"{""firma_1"": ""Groz-Beckert"", 
- ""firma_2"": ""Lonati"", 
- ""firma_3"": ""Monarch"", 
- ""firma_4"": ""Orizio""}"
-29;Repuestos y Neumática;Uruguay;Maldonado;Maldonado;Av. Roosevelt;901;"{""firma_1"": ""Parker Hannifin"", 
- ""firma_2"": ""Festo"", 
- ""firma_3"": ""Aventics"", 
- ""firma_4"": ""SMC Pneumatics""}"
-30;Mecanizados Global;Alemania;Renania del Norte;Düsseldorf;Königsallee;751;"{""firma_1"": ""Stoll"", 
- ""firma_2"": ""Karl Mayer"", 
- ""firma_3"": ""Monarch"", 
- ""firma_4"": ""Groz-Beckert""}"
+id_proveedor;nombre;pais;provincia;ciudad;calle;num_calle
+1;TecnoRepuestos;Argentina;Buenos Aires;Buenos Aires;Av. Rivadavia;1234
+2;PneumaTech;Brasil;São Paulo;São Paulo;Rua 25 de Março;567
+3;ElectraCom;México;Jalisco;Guadalajara;Av. Vallarta;789
+4;TexMaquinaria;Colombia;Antioquia;Medellín;Cra. 70;123
+5;Automatizaciones Alvarez;España;Madrid;Madrid;Calle Serrano;456
+6;ElectroPunto;Chile;Santiago;Santiago;Av. Apoquindo;1010
+7;MaquiTej;Perú;Lima;Lima;Jr. De la Unión;2020
+8;Conectores del Sur;Argentina;Córdoba;Córdoba;Bv. San Juan;1212
+9;TechNeumatica;Uruguay;Montevideo;Montevideo;18 de Julio;543
+10;Repuestos Muller;Alemania;Baviera;Múnich;Königsallee;321
+11;Piezas Omega;Italia;Lombardía;Milán;Via Montenapoleone;222
+12;Controles S.A.;España;Barcelona;Barcelona;Gran Vía;654
+13;TexGlobal;Portugal;Lisboa;Lisboa;Rua Augusta;987
+14;Mecatej;Ecuador;Pichincha;Quito;Av. Amazonas;567
+15;Componentes JT;Argentina;Mendoza;Mendoza;Av. Las Heras;444
+16;NeumaRep;Brasil;Rio de Janeiro;Río de Janeiro;Av. Rio Branco;111
+17;ElectroPartes;Paraguay;Asunción;Asunción;Av. Mariscal López;1500
+18;TechTools;Bolivia;La Paz;La Paz;Av. Montes;333
+19;Automatizaciones Garcia;Uruguay;Canelones;Canelones;Ruta 5;777
+20;Componentes Técnicos S.A.;Chile;Valparaíso;Valparaíso;Av. Errázuriz;112
+21;InoxRepuestos;Brasil;São Paulo;Campinas;Rua Américo Brasiliense;88
+22;Piezas Tecno S.R.L.;México;Ciudad de México;CDMX;Insurgentes Sur;500
+23;Sistemas Integrales;Perú;Callao;Callao;Av. Faucett;134
+24;Repuestos y Servicios Ltda.;Colombia;Valle del Cauca;Cali;Calle 13;890
+25;Mecánica Especializada;Argentina;Buenos Aires;La Plata;Calle 9;312
+26;ElectroTec;España;Sevilla;Sevilla;Calle Sierpes;212
+27;MaquinasCirculares S.R.L.;Argentina;Santa Fe;Rosario;Bv. Oroño;678
+28;TecnoComp;Italia;Veneto;Venecia;Piazza San Marco;321
+29;Repuestos y Neumática;Uruguay;Maldonado;Maldonado;Av. Roosevelt;901
+30;Mecanizados Global;Alemania;Renania del Norte;Düsseldorf;Königsallee;751

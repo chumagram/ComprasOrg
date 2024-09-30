@@ -1,0 +1,21 @@
+id_requisicion;id_estado;id_proveedor;fecha;num_oferta;link_oferta;Comentario
+1;10;29;15/3/2021;OF-3486-A;https://images.app.goo.gl/Peq9Pf2dQAtHvF1r5;NEUMATICA - RACOR
+2;9;14;30/4/2021;43593;https://images.app.goo.gl/MNAK6uAFDKbdpnA49;VANGUARD
+3;10;1;4/5/2021;100043859;https://images.app.goo.gl/8mHvgMCmQ78T3mBH8;CORREAS
+4;10;3;24/6/2021;A0004385;https://images.app.goo.gl/AnRCZfwcKJ5HcuSB9;MEMMINGER
+5;10;27;27/9/2021;123490435;https://images.app.goo.gl/Q3c5qV6KSE6DboX77;AGUJAS Y PLATINAS
+6;10;4;9/10/2021;48JDF54;https://images.app.goo.gl/KdWyYhGRAzLFBdUD8;MAYER
+7;10;29;29/1/2022;OF-5482-D;https://images.app.goo.gl/qcTywDYMqFamW654A;NEUMATICA - ELECTROVÁLVULA
+8;9;20;8/4/2022;7758;https://images.app.goo.gl/DyJMwech8YwK3BZK8;RODAMIENTOS
+9;10;27;16/7/2022;235923984;https://images.app.goo.gl/GsYViw7Gmw4cRa5x6;AGUJAS Y PLATINAS
+10;10;3;8/8/2022;B0005834;https://images.app.goo.gl/cBP7aKVw7TD5vMq16;MEMMINGER - CINTAS
+11;8;1;9/10/2022;159385394;https://images.app.goo.gl/Wuc98mgbQbmfqasU8;CORREAS
+12;7;20;22/12/2022;8467;https://images.app.goo.gl/Jia86tkT5RpWmgdZ6;RODAMIENTOS
+13;5;25;1/2/2023;5738495682;https://images.app.goo.gl/8s83eeJ7F8i2sxRp6;LUBRICANTE
+14;6;9;17/6/2023;OF-8478-A;https://images.app.goo.gl/1LLQvG9pyYA7PRKa7;NEUMATICA - ACOPLES
+15;3;1;29/9/2023;2475943945;https://images.app.goo.gl/Q3gG1LJUnmKvrkUDA;CORREAS
+16;2;6;30/10/2023;576395;https://images.app.goo.gl/Jtdf8v3FV2rBK4LJ7;MEMMINGER - ALIMENTADORES
+17;1;4;5/12/2023;3HJD65K;https://images.app.goo.gl/Jv3sobjWFyjLnrCh7;MAYER
+18;4;27;24/3/2024;342965464;https://images.app.goo.gl/WnoPzkC9pMbYP6KdA;AGUJAS Y PLATINAS
+19;2;14;8/6/2024;73484;https://images.app.goo.gl/hQFVQS3h227Wk5GB6;VANGUARD
+20;2;25;29/9/2024;5738495689;https://images.app.goo.gl/8s83eeJ7F8i2sxRp6;LUBRICANTE

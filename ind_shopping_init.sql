@@ -11,8 +11,8 @@ CREATE TABLE ind_shopping.categoria_insumo (
 
 -- Crear tabla "insumo"
 CREATE TABLE ind_shopping.insumo (
-  id_insumo SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  descripcion VARCHAR(100) NOT NULL,
+  id_insumo MEDIUMINT UNSIGNED NOT NULL,
+  descripcion VARCHAR(500) NOT NULL,
   stock MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
   stock_max MEDIUMINT UNSIGNED,
   stock_min SMALLINT UNSIGNED,
@@ -33,8 +33,8 @@ CREATE TABLE ind_shopping.maquina (
   anio_fabricacion YEAR NOT NULL,
   fabricante VARCHAR(8) NOT NULL,
   modelo VARCHAR(50) NOT NULL,
-  diametro TINYINT UNSIGNED NOT NULL,
-  potencia TINYINT UNSIGNED NULL,
+  diametro TINYINT UNSIGNED NULL,
+  potencia DECIMAL(4,2) UNSIGNED NULL,
   unidad_med CHAR(2) NOT NULL,
   alimentadores TINYINT UNSIGNED NOT NULL,
   PRIMARY KEY (id_maquina)
@@ -129,7 +129,7 @@ CREATE TABLE ind_shopping.requisicion (
 CREATE TABLE ind_shopping.requisicion_lista (
 	id_lista_req SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_requisicion SMALLINT UNSIGNED NOT NULL,
-    id_insumo SMALLINT UNSIGNED NOT NULL,
+    id_insumo MEDIUMINT UNSIGNED NOT NULL,
     cantidad MEDIUMINT UNSIGNED NOT NULL,
     PRIMARY KEY (id_lista_req),
     CONSTRAINT fk_requisicion_lista_requisicion
@@ -147,9 +147,10 @@ CREATE TABLE ind_shopping.requisicion_lista (
 -- Crear tabla "consumo"
 CREATE TABLE ind_shopping.consumo (
 	id_consumo MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_insumo SMALLINT UNSIGNED NOT NULL,
+    id_insumo MEDIUMINT UNSIGNED NOT NULL,
     id_maquina CHAR(5) NULL,
     cantidad SMALLINT UNSIGNED NOT NULL,
+    fecha DATE NOT NULL,
     PRIMARY KEY (id_consumo),
     CONSTRAINT fk_consumo_insumo
 		FOREIGN KEY (id_insumo)
@@ -167,8 +168,7 @@ CREATE TABLE ind_shopping.consumo (
 CREATE TABLE ind_shopping.catalogo (
 	id_provee_insum SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_proveedor SMALLINT UNSIGNED NOT NULL,
-    id_insumo SMALLINT UNSIGNED NOT NULL,
-    codigo_insu_prov VARCHAR(20) NULL,
+    id_insumo MEDIUMINT UNSIGNED NOT NULL,
     PRIMARY KEY (id_provee_insum),
     CONSTRAINT fk_catalogo_insumo
 		FOREIGN KEY (id_insumo)

@@ -1,0 +1,29 @@
+id_categoria_insumo,nombre,descripcion
+1,Agujas,"Agujas que se usan en las máquinas tejedoras circulares"
+2,Platinas,"Platinas que se usan en las maquina tejedoras circualres"
+3,Lubricantes,"Lubricantes en general"
+4,Herramientas,"Herramientas que utilizan los técnicos"
+5,Rodamientos,"Rodamientos de todo tipo y sus componentes"
+6,"Placas electrónicas","Palcas electrónicas que se utilizan en las máquinarias"
+7,"Otros repuestos de máquinas","Repuestos especiales de las maquinas tejedoras"
+8,Engranajes,"Engranajes de las máquinas"
+9,Poleas,"Poleas de las máquinas"
+10,Piñon,"Piñones de las máquinas"
+11,Bujes,"Bujes que se utilizan en las maquinas"
+12,Neumatica,"Componentes referentes a la neumatica de la maquina o instalaciones"
+13,Correas,Correas
+14,Cadenas,Cadenas
+15,Sensores,Sensores
+16,Librería,"Artículos de librería"
+17,Farmacia,"Artpiculos de farmacia"
+18,"Componentes electrónicos","Componentes electrónicos"
+19,Fusibles,fusibles
+20,Contactores,Contactores
+21,Termomagnéticas,Termomagnéticas
+22,Electricidad,Electricidad
+23,Ferretería,"Artículos de ferretería"
+24,Iluminación,"Artículos de iluminación"
+25,Bulones,Bulones
+26,Adhesivos,Adhesivos
+27,Limpieza,"Artículos de limpieza"
+28,"Mecánica general","Otras piezas mecánicas"
