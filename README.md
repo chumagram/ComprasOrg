@@ -248,14 +248,14 @@ En este apartado se agrearán vistas, funciones, stored procedures y triggers pa
 
 ## 7. Stored procedures
 
-### Procedure 1 - Buscar en estado general de un insumo
+### Stored Procedure 1 - Buscar en estado general de un insumo
 **Descripción:** Este procedimiento almacenado o stored procedure, realiza la búsqueda en todas las posibles tablas en donde se puede encontrar el insumo, es decir, en las tablas insumo, consumo y requisicion_lista; y devuelve los resultados coincidentes.  
 **Objetivo:** Ver facilmente el estado de un insumo en la base de datos.  
 **Tablas/datos:**  
 - Se aplica a las tablas: "insumo", "consumo" y "requisicion_lista" en simultaneo.
 - Datos de entrada: descripción o parte de la descripción de un insumo.
 
-### Procedure 2 - Crear requisicion de compra
+### Stored Procedure 2 - Crear requisicion de compra
 **Descripción:** Este stored procedure tiene la capacidad de crear una nueva requisición de compra en la base de datos.  
 **Objetivo:** Crear una requisisción de compra y asignarle proveedor y estado. Esto automatiza el proceso de crear una requisición.  
 **Tablas/datos:**  
@@ -265,6 +265,17 @@ En este apartado se agrearán vistas, funciones, stored procedures y triggers pa
   2. Numero de oferta
   3. Solicitante
   4. Comentario
+
+### Stored Procedure 3 - Generar un nuevo consumo
+**Descripción:** Este procedimiento almacendao realiza una inserción de un nuevo consumo a la tabla "consumo".  
+**Objetivo:** Hacer una inserción controlada de los consumos.  
+**Tablas/datos:**  
+- Se aplica a la tabla: "consumo".
+- Datos de entrada:
+  - p_id_insumo: El identificador del insumo que será consumido.
+  - p_id_maquina: El identificador de la máquina en la cual se utiliza el insumo.
+  - p_cantidad: La cantidad de insumo que se desea consumir.
+  - p_fecha: La fecha en la que ocurre el consumo.
 
 ## 8. Triggers
 

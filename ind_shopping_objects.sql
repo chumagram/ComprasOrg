@@ -161,19 +161,85 @@ DELIMITER ;
 
 -- Crear store procedure 2: creación de requisición de compra
 DELIMITER //
-CREATE PROCEDURE crear_requisicion(
-    in_id_proveedor INT,
-    in_num_oferta VARCHAR(50),
-    in_solicitante VARCHAR(100),
-    in_comentario TEXT
+CREATE PROCEDURE crear_nueva_requisicion(
+    IN p_id_estado_req INT,
+    IN p_id_proveedor INT,
+    IN p_fecha DATE,
+    IN p_num_oferta VARCHAR(20),
+    IN p_insumos JSON
 )
 BEGIN
-    INSERT INTO requisicion (fecha, id_proveedor, num_oferta, id_estado, solicitante, comentario)
-    VALUES (CURDATE(), in_id_proveedor, in_num_oferta, 1, in_solicitante, in_comentario);
-END //
+    DECLARE v_id_requisicion INT;
+	DECLARE v_id_insumo INT;
+    DECLARE v_cantidad INT;
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE cur CURSOR FOR 
+        SELECT JSON_UNQUOTE(JSON_EXTRACT(value, '$.id_insumo')),
+               JSON_UNQUOTE(JSON_EXTRACT(value, '$.cantidad'))
+        FROM JSON_TABLE(p_insumos, '$[*]'
+                COLUMNS (
+                    value JSON PATH '$'
+                )) AS jt;
+                
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+    -- Insertar la nueva requisición en la tabla requisicion
+    INSERT INTO requisicion (id_estado_req, id_proveedor, fecha, num_oferta)
+    VALUES (p_id_estado_req, p_id_proveedor, p_fecha, p_num_oferta);
+
+    -- Obtener el id de la requisición recién insertada
+    SET v_id_requisicion = LAST_INSERT_ID();
+
+    -- Insertar los insumos correspondientes en la tabla requisicion_lista
+    OPEN cur;
+    read_loop: LOOP
+        FETCH cur INTO v_id_insumo, v_cantidad;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Insertar el insumo en la tabla requisicion_lista
+        INSERT INTO requisicion_lista (id_requisicion, id_insumo, cantidad)
+        VALUES (v_id_requisicion, v_id_insumo, v_cantidad);
+    END LOOP;
+
+    CLOSE cur;
+
+END//
 DELIMITER ;
 
--- Crear store procedure 3: Buscar histórico de consumo de un determinado insumo
+-- Crear Store Procedure 3: Generar un nuevo consumo
+DELIMITER //
+CREATE PROCEDURE generar_consumo(
+    IN p_id_insumo INT,
+    IN p_id_maquina CHAR(5),
+    IN p_cantidad INT(10),
+    IN p_fecha DATE
+)
+BEGIN
+    -- Verificar si hay suficiente stock del insumo antes de generar el consumo
+    DECLARE v_stock_actual INT(10);
+
+    SELECT stock INTO v_stock_actual
+    FROM insumo
+    WHERE id_insumo = p_id_insumo;
+
+    IF v_stock_actual >= p_cantidad THEN
+        -- Insertar el nuevo consumo en la tabla consumo
+        INSERT INTO consumo (id_insumo, id_maquina, cantidad, fecha)
+        VALUES (p_id_insumo, p_id_maquina, p_cantidad, p_fecha);
+
+        -- Actualizar el stock del insumo en la tabla insumo
+        UPDATE insumo
+        SET stock = stock - p_cantidad
+        WHERE id_insumo = p_id_insumo;
+    ELSE
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Stock insuficiente para realizar el consumo';
+    END IF;
+END//
+DELIMITER ;
+
 
 -- Crear TRIGGER para actualizar el stock luego de un consumo
 DELIMITER //
