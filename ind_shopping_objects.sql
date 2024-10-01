@@ -134,7 +134,7 @@ BEGIN
 END$$
 DELIMITER ;
 
--- Crear Store Procedure de buscador general de estado de insumo
+-- Crear Store Procedure 1: buscador de insumo en tabla según parte de la descripción
 DELIMITER //
 CREATE PROCEDURE buscar_insumo_en_todas_las_tablas(
     IN descripcion_parcial VARCHAR(100)
@@ -159,8 +159,7 @@ BEGIN
 END //
 DELIMITER ;
 
-
--- Crear store procedure de creación de requisición de compra
+-- Crear store procedure 2: creación de requisición de compra
 DELIMITER //
 CREATE PROCEDURE crear_requisicion(
     in_id_proveedor INT,
@@ -173,6 +172,8 @@ BEGIN
     VALUES (CURDATE(), in_id_proveedor, in_num_oferta, 1, in_solicitante, in_comentario);
 END //
 DELIMITER ;
+
+-- Crear store procedure 3: Buscar histórico de consumo de un determinado insumo
 
 -- Crear TRIGGER para actualizar el stock luego de un consumo
 DELIMITER //

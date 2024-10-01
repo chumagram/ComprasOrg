@@ -266,9 +266,22 @@ En este apartado se agrearán vistas, funciones, stored procedures y triggers pa
   3. Solicitante
   4. Comentario
 
-## 8. Archivos SQL para la creación de los objetos
+## 8. Triggers
+
+### Trigger 1 - Actualizar el stock luego de realizar un consumo
+**Descripción:** este trigger actualiza el stock de la talba insumo, automaticamente al producirse una nueva linea en la tabla consumo.
+**Objetivo:** Mantener el stock actualizado. Lograr automatizar la actualización de stock.
+
+### Trigger 2 - Actualizar el stock luego de que ingresa una compra
+**Descripción:** este trigger actualiza el stock luego de que una requisición de compra pasa al estado de "llegó completo". Para saber que insumos debe actualizar en la talbla "insumo", se basa en la tabla "lista_requisicion" y su respectivo numero de requisicion.
+**Objetivo:** Automatizar el stock de insumo automáticamente se registre un ingreso de los mismos a la planta industrial. Previo a esto siempre se hace un control manual de que es lo que llega. Luego (actualmente) se realiza la carga en el sistema MP9 item po item. Esto es podría automatizar si ya se tiene en el sistema la requisicion de compra y los items que se solicitan en dicha requisición.
+
+## 9. Archivos SQL para la creación de los objetos
 *Descarga el siguiente archivo y ejecútalo para crear las vistas, funciones y stored procedures que te serán útiles en el día a día usando la db deñ Gestór de compras industriales*
 [CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects.sql)
+
+## 10. Informes generados en Looker-Studio
+
 
 # Listado de herramientas utilizadas
 1. **MySql Workbench**: Gestor principal de la base de datos en cuestión.
@@ -277,6 +290,7 @@ En este apartado se agrearán vistas, funciones, stored procedures y triggers pa
 4. **Git**: esta herramienta fue muy útil para poder ir realizando el seguimiento y las presentaciones de los trabajos en las clases. Sobre todo fue util para poder presentar centralizadamente todo el trabajo.
 5. **Miro**: esta herramienta fue especialmente útil para el diseño de la base de datos mediante el Diagrama Entidad-relación. Es una herramienta gratuita, pero tiene una opcion de pago que da otras opciones como mejorar la calidad de la imagen que se exporta.
 6. **ChatGPT**: esta herramienta controversial pero muy útil, fue de gran ayuda para hacer de copiloto en la programación de la base de dato y los archivos de python que mencioné anteriormente. Tambipen lo usé para aclarar ideas y conceptos con respecto a la base de datos. Por ejemplo, que nuevas funciones serían útiles si necesito saber si un insumo está disponible para ser consumido, entre otros.
+7. **Looker-Studio**: esta herramienta de BI fue utilizada para realizar los informes. Nunca lo había utilizado.
 
 # Futuras líneas
 
