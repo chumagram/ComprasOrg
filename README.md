@@ -1,3 +1,5 @@
+![Portada](/portada.jpg)
+
 # Proyecto Final - Gestor de compras industriales
 ## 1. Descripción de la temática
 
@@ -152,25 +154,29 @@ Luego, la base de datos también tendría la capacidad de:
 | Identificador del insumo              | id_insumo      | SMALLINT UNSIGNED  | Clave foránea   | 65535        |
 | Cantidad del insumo a solicitar       | cantidad       | MEDIUMINT UNSIGNED |                 | 16777215     |
 
-## 4. Archivo SQL
+## 4. Archivo SQL para inicializar la base de datos
 *En el siguiente link puedes encontrar la query que crea la base de datos con sus respectivas tablas y configraciones:*  
 [CLICKEA AQUI](/ind_shopping_init.sql)
+*También te dejo otro link para poblar la base de datos con ejemplos que inventé. Pero puedes usar tus propios datos tranquilamente:*
+[CLICKEA AQUI](/ind_shopping_population.sql)
 
-# Segunda entrega - Vistas, funciones, stored procedures y population
-En este apartado se agrearán vistas, funciones, stored procedures y un population con datos correspondientes a la base de datos creada en el apartado anterior o entregable 1.
+# OBJETOS: Vistas, funciones, stored procedures y triggers de utilidad
+En este apartado se agrearán vistas, funciones, stored procedures y triggers para que la base de datos tenga mas dinamismo y funcionalidad.
 
 ## 5. Vistas
 
-### Vista 1 - Inventario de Insumos
+### Vista 1 - Insumos con deficit de stock ordenados segun urgencia
 **Descripción:** esta vista muestra el inventario actual de insumos, incluyendo la cantidad en stock y el stock mínimo.  
-**Objetivo:** mostrar de forma resumida y a posibles programas de terceros, la lista de todos los insumos que se tienen registrados con el stock actual y el minimo para analizar las posibles compras y o requisiciones de insumos a un almacén que los contenga para ser utilizados o consumidos.  
+**Objetivo:** mostrar de forma descendente la urgencia de adquirir los distintos tipos de insumos. Los porcentajes mas cercanos al 100, son los más urgentes de adquirir y se posicionaran inicialmente por defecto, en la parte superior de la tabla de la view. Cabe aclarar que todos los items que se muestran en la lista, están por debajo del stock minimo, así que se debería realizar una compra de todos ellos. En consecuencia y gracias a esta vista, podemos dar una prioridad según los porcentajes.
 **Tablas/datos:**
-| Nombre del campo          | Abreviatura  | Tabla origen |
-|---------------------------|--------------|--------------|
-| Identificador del insumo  | id_insumo    | insumo       |
-| Descripción del insumo    | descripcion  | insumo       |
-| Stock del insumo          | stock        | insumo       |
-| Stock mínimo del insumo   | stock_min    | insumo       |
+| Nombre del campo                                       | Abreviatura           | Tabla origen |
+|--------------------------------------------------------|-----------------------|--------------|
+| Identificador del insumo                               | id_insumo             | insumo       |
+| Descripción del insumo                                 | descripcion           | insumo       |
+| Stock del insumo                                       | stock                 | insumo       |
+| Stock mínimo del insumo                                | stock_min             | insumo       |
+| Stock mínimo del insumo                                | stock_max             | insumo       |
+| Difetencia porcentual entre el stock y el stock minimo | diferencia_porcentual | esta view    |
 
 ### Vista 2 - Consumos por Máquina
 **Descripción:** Muestra la cantidad de cada insumo utilizado por cada máquina.  
@@ -199,7 +205,7 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
 
 ### Vista 4 - Proveedores e Insumos Suministrados
 **Descripción:** relación entre proveedores y los insumos que suministran.
-**Objetivo:** mostrar simplemente los insumos que provee un determinado proveedor para un rápido análisis de los posibles insumos a adquirir que pertenezcan a un mismo proveedor. Sería lograr algo así como la recomendación de añadir productos del mismo proveedor que recomienda Mercado Libre cuando se hace una compra. Esto trae beneficios monetarios, como descuentos, posibilidad de negociación y menos gastos de envío.
+**Objetivo:** hacer "AMIGABLE" a la tabla "catalogo". Muestra los insumos que provee un determinado proveedor para un rápido análisis de los posibles insumos a adquirir que pertenezcan a un mismo proveedor. Sería lograr algo así como la recomendación de añadir productos del mismo proveedor que recomienda Mercado Libre cuando se hace una compra. Esto trae beneficios monetarios, como descuentos, posibilidad de negociación y menos gastos de envío.
 **Tablas/datos:**
 | Nombre del campo            | Abreviatura         | Tabla origen |
 |-----------------------------|---------------------|--------------|
@@ -224,10 +230,11 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
 
 ## 6. Funciones
 
-### Función 1 - Buscar insumo en tabla según descripción
-**Descripción:** esta funcion busca un insumo en una tabla que lo contenga según se especifique. Luego trae los datos de ese insumo en esa tabla.  
-**Objetivo:** Buscar rápidamente un insumo y los datos sobre él para poder ser analizado o planificar un consumo o compra.  
-**Tablas/datos:**  
+### Función 1 - Verificar stock disponible de un insumo
+**Descripción:** Esta función verifica el stock disponible de un insumo.  
+**Objetivo:** verificar si hay suficiente stock para un insumo específico y una cantidad solicitada, y devuelve un valor booleano (1 o 0). Es útil antes de realizar consumos, requisiciones o procesos que requieran verificar la disponibilidad de stock.  
+**Datos de entrada:** id del insumo (id_insum_param), cantidad a solicitar (cantidad)
+**Datos de salida:** 0 o 1 (booleano) 
 
 ### Función 2 - Buscar insumo en tabla según identificador
 **Descripción:** esta funcion busca un un insumo pero se debe pasar el identificador o ID. Esto es más rápido en cuanto a procesamiento y/o si el usuario tiene el ID a mano, ya sea porque esta viendo una requisición o consumo realizado.  
@@ -259,12 +266,24 @@ En este apartado se agrearán vistas, funciones, stored procedures y un populati
   3. Solicitante
   4. Comentario
 
-## 8. Archivos SQL
-
-### 8.1. Script de creación de objetos:
+## 8. Archivos SQL para la creación de los objetos
 *Descarga el siguiente archivo y ejecútalo para crear las vistas, funciones y stored procedures que te serán útiles en el día a día usando la db deñ Gestór de compras industriales*
 [CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects.sql)
 
-### 8.2. Script de inserción de datos:
-*Descarga el siguiente archivo y ejecútalo para poblar de datos las tablas de la base de datos a modo de ejemplo. Puede insertar los datos que correspondan a su negocio o industria.*
-[CLICKEA AQUÍ Y EJECUTA PARA POBLAR DE DATOS LAS TABLAS DE LA DB](/ind_shopping_population.sql)
+# Listado de herramientas utilizadas
+1. **MySql Workbench**: Gestor principal de la base de datos en cuestión.
+2. **Visual Studio Code**: edicion de MarkDown y programación en python.
+3. **Python**: para la conversión de archivos CSV a un INSERT en SQL, se utilizó un script de python diseñado especificamente para este fin. El mismo se lo puede encontrar en el siguiente link. [CLICKEA AQUÍ](/Population_files/csv_to_sql.py). También se lo utilizó para realizar otras modificaciones, como por ejemplo, la correción de fechas de DDD/MM/AAAA a AAAA-MM-DD, ya que este ultimo formato es el compatible con MySQL. También adjunto el link a este Script [CLICKEA AQUÍ](/Population_files/cambiar_fecha.py).
+4. **Git**: esta herramienta fue muy útil para poder ir realizando el seguimiento y las presentaciones de los trabajos en las clases. Sobre todo fue util para poder presentar centralizadamente todo el trabajo.
+5. **Miro**: esta herramienta fue especialmente útil para el diseño de la base de datos mediante el Diagrama Entidad-relación. Es una herramienta gratuita, pero tiene una opcion de pago que da otras opciones como mejorar la calidad de la imagen que se exporta.
+6. **ChatGPT**: esta herramienta controversial pero muy útil, fue de gran ayuda para hacer de copiloto en la programación de la base de dato y los archivos de python que mencioné anteriormente. Tambipen lo usé para aclarar ideas y conceptos con respecto a la base de datos. Por ejemplo, que nuevas funciones serían útiles si necesito saber si un insumo está disponible para ser consumido, entre otros.
+
+# Futuras líneas
+
+## Realizar la gestión de los tiempos
+
+En base a la experiencia creando esta base de taos, surge la necesidad de poder ir calculando los **tiempos de abastecieminto, tiempo de fabricación de insumos**. Esta mejora sería muy veneficiosa ya que va a permitir preveer. Por ejemplo, si sabemos que si se le compra a un determinado proveedor, la compra tarda X cantidad de días. Entonces, en base a estos se puede adelantar la compra o tomar otras deciciones como acudir a otro proveedor que tenga menor frecuencia de abastecimiento, entre otras decisiones que se puedan llegar a tomar. 
+
+Tambien realizar el **analis de la frecuencia de consumo de un determinado insumo en una determinada maquina**. Esto es especialmente util porque de esta manera podemos hasta poder preveer cuando va a fallar un insumo com por ejemplo un rodamiento. Por ejemplo, si se consume en esa maquina un rodamiento cada 8 meses, es posible hasta realizar un plan de mantenimiento predictivo en donde el rodamiento se cambia a los 7 meses y luego evitar los inconvenientes de que la maquina falle por culpa del rodamiento en cuestión.
+
+Luego de estas y otras mejoras que seguramente surjan en el camino, lo que sigue es realizar un **entorno de usuario**. Para esta tarea, tengo planeado usar herramientas del stack MERN (ya que hice el curso en Corder House de estp) o Electron si va a ser una app para exritorio. Esto lograría un proyecto amigable y completo, digno de ser admirado por un posible evaluador para un puesto laboral o como no, lograr **vender la idea**.
