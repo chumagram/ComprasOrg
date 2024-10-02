@@ -213,12 +213,12 @@ DELIMITER //
 CREATE PROCEDURE generar_consumo(
     IN p_id_insumo INT,
     IN p_id_maquina CHAR(5),
-    IN p_cantidad INT(10),
+    IN p_cantidad INT,
     IN p_fecha DATE
 )
 BEGIN
     -- Verificar si hay suficiente stock del insumo antes de generar el consumo
-    DECLARE v_stock_actual INT(10);
+    DECLARE v_stock_actual INT;
 
     SELECT stock INTO v_stock_actual
     FROM insumo
@@ -228,18 +228,12 @@ BEGIN
         -- Insertar el nuevo consumo en la tabla consumo
         INSERT INTO consumo (id_insumo, id_maquina, cantidad, fecha)
         VALUES (p_id_insumo, p_id_maquina, p_cantidad, p_fecha);
-
-        -- Actualizar el stock del insumo en la tabla insumo
-        UPDATE insumo
-        SET stock = stock - p_cantidad
-        WHERE id_insumo = p_id_insumo;
     ELSE
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Stock insuficiente para realizar el consumo';
     END IF;
 END//
 DELIMITER ;
-
 
 -- Crear TRIGGER para actualizar el stock luego de un consumo
 DELIMITER //
@@ -274,7 +268,7 @@ BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
 
     -- Verificar si el estado cambió a 'llegó'
-    IF NEW.id_estado = 10 THEN
+    IF NEW.id_estado_req = 10 THEN
         OPEN cur;
         
         read_loop: LOOP

@@ -292,7 +292,8 @@ En este apartado se agrearán vistas, funciones, stored procedures y triggers pa
 [CLICKEA AQUÍ Y EJECUTA LA QUERY PARA CREAR LOS OBJETOS EN LA DB](/ind_shopping_objects.sql)
 
 ## 10. Informes generados en Looker-Studio
-
+Para acceder al informe con gráficos y KPIs de la base de datos, usted debe acceder al siguiente link: 
+[CLICKEA AQUÍ](https://lookerstudio.google.com/reporting/a261f83c-bf1c-489a-bf78-7e7f3fab2069)
 
 # Listado de herramientas utilizadas
 1. **MySql Workbench**: Gestor principal de la base de datos en cuestión.
@@ -311,4 +312,12 @@ En base a la experiencia creando esta base de taos, surge la necesidad de poder 
 
 Tambien realizar el **analis de la frecuencia de consumo de un determinado insumo en una determinada maquina**. Esto es especialmente util porque de esta manera podemos hasta poder preveer cuando va a fallar un insumo com por ejemplo un rodamiento. Por ejemplo, si se consume en esa maquina un rodamiento cada 8 meses, es posible hasta realizar un plan de mantenimiento predictivo en donde el rodamiento se cambia a los 7 meses y luego evitar los inconvenientes de que la maquina falle por culpa del rodamiento en cuestión.
 
+## Lograr una app amigable
+
+![Entorno de usuario](/entorno-usuario.jpg)
+
 Luego de estas y otras mejoras que seguramente surjan en el camino, lo que sigue es realizar un **entorno de usuario**. Para esta tarea, tengo planeado usar herramientas del stack MERN (ya que hice el curso en Corder House de estp) o Electron si va a ser una app para exritorio. Esto lograría un proyecto amigable y completo, digno de ser admirado por un posible evaluador para un puesto laboral o como no, lograr **vender la idea**.
+
+# Agradecimientos
+
+Muchas gracias a mi profesora Lucia Blanc y mi tutor Gabriel Bertella por ayudarme a lograr este aprendizaje que espero lo aplique seguidamente ya que me encató y me parece de lo más útil que existe. También agradezco a mi segunda universidad, Grupo Ritex, por apoyarme en mi crecimiento profesional, permitiéndome tomar el curso de SQL de Coder House.
